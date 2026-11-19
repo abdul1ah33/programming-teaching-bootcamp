@@ -29,3 +29,9 @@ A log of technical decisions, one line each with the reason. Newest at the botto
 | 23 | 2026-11-19 | 2 | "Sessions planned" in a report = every session dated that month (held + planned + cancelled). | Reads naturally as "4 of 5 planned sessions held". |
 | 24 | 2026-11-19 | 2 | Badge unlock date = date the threshold was first crossed; unknown (null) when a needed date is missing; points badges re-lock if a correction drops the total below N. | Derived purely from content, as the spec asks. |
 | 25 | 2026-11-19 | 2 | Test fixtures live in `tests/fixtures.ts`. | Keeps lib/derive free of test-only code. |
+| 26 | 2026-11-19 | 3 | Mobile nav is a native `<dialog>` bottom sheet. | Focus trap, Esc, inert background and return focus come built in — fewer bugs than a hand-rolled drawer. |
+| 27 | 2026-11-19 | 3 | "Today" on the client comes from `useSyncExternalStore` (null on the server). | No hydration mismatch and no setState-in-effect; next session is computed in the browser as the spec asks. |
+| 28 | 2026-11-19 | 3 | Shiki with the JavaScript regex engine, only Python + C grammars, and two custom themes built from the palette. | Small, build-time only, no WASM; colours match the site in both themes. |
+| 29 | 2026-11-19 | 3 | Sprint page: on phones the checklist + files column comes first; on desktop it's a sticky side column. | The ready checks are the most important thing on a sprint page. |
+| 30 | 2026-11-19 | 3 | `lib/labels.ts` for display helpers (sprint label, phase label, plural). | Formatting only; keeps lib/derive unchanged (no mid-course changes). |
+| 31 | 2026-11-19 | 3 | Screenshots wait for `load` + 400 ms rather than `networkidle`. | Next's link prefetching keeps the network busy; networkidle timed out. |

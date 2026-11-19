@@ -108,16 +108,16 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 3 — Design system & shell
 
-- [ ] Root layout: skip link, header, main, footer; max widths; semantic landmarks
-- [ ] Desktop navigation: Home, Road map, Sessions, Resources, Projects · "Learn" menu (Glossary, Cheat sheets, What's next) · "Points" link with total · "For parents" menu (Learning plan, Monthly reports) — menus keyboard-accessible (disclosure pattern, Esc closes)
-- [ ] Mobile navigation: menu button → bottom sheet/drawer with all links grouped, focus trapped, Esc/overlay closes, body scroll locked
-- [ ] Theme toggle (light/dark/system cycle or light/dark with system default), accessible label
-- [ ] UI primitives in `components/ui/`: Card, Badge, StatusPill (upcoming / in-progress / done / planned / cancelled / assigned / reviewed), ProgressBar (ARIA), CodeBlock (Shiki at build time, dual light/dark theme, copy button), FileRow (icon by type, size, download/preview), SectionHeading, EmptyState
-- [ ] Shiki highlighter wrapper (server-side, cached), themes matched to site palette
-- [ ] Motion: ≤ 200ms transitions, all disabled under `prefers-reduced-motion`
-- [ ] Home page: greeting, current sprint card, overall progress, next session (client-computed), points total + latest badge, latest 3 sessions, latest files
-- [ ] One sprint page `/sprints/[slug]` (built for Sprint 0 data, generic for all)
-- [ ] Playwright installed (dev), `scripts/screenshots.ts` (or test) capturing given routes × {light, dark} × {375, 1280}
+- [x] Root layout: skip link, header, main, footer; max widths; semantic landmarks
+- [x] Desktop navigation: Home, Road map, Sessions, Resources, Projects · "Learn" menu (Glossary, Cheat sheets, What's next) · "Points" link with total · "For parents" menu (Learning plan, Monthly reports) — menus keyboard-accessible (disclosure pattern, Esc closes)
+- [x] Mobile navigation: menu button → bottom sheet/drawer with all links grouped, focus trapped, Esc/overlay closes, body scroll locked
+- [x] Theme toggle (light/dark/system cycle or light/dark with system default), accessible label
+- [x] UI primitives in `components/ui/`: Card, Badge, StatusPill (upcoming / in-progress / done / planned / cancelled / assigned / reviewed), ProgressBar (ARIA), CodeBlock (Shiki at build time, dual light/dark theme, copy button), FileRow (icon by type, size, download/preview), SectionHeading, EmptyState
+- [x] Shiki highlighter wrapper (server-side, cached), themes matched to site palette
+- [x] Motion: ≤ 200ms transitions, all disabled under `prefers-reduced-motion`
+- [x] Home page: greeting, current sprint card, overall progress, next session (client-computed), points total + latest badge, latest 3 sessions, latest files
+- [x] One sprint page `/sprints/[slug]` (built for Sprint 0 data, generic for all)
+- [x] Playwright installed (dev), `scripts/screenshots.ts` (or test) capturing given routes × {light, dark} × {375, 1280}
 
 **Acceptance gate (Phase 3)**
 - `npm run verify` passes.
