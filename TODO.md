@@ -89,15 +89,15 @@ Screenshot widths used throughout: phone = 375×812, desktop = 1280×800.
 
 All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/derive/`.
 
-- [ ] `progress.ts`: overall % (done sprints + partial credit from ready checks of the current sprint), sprints done count, checks ticked count
-- [ ] `currentSprint.ts`: first `in-progress` sprint, else first `upcoming`, else last sprint (journey complete)
-- [ ] `nextSession.ts`: earliest `planned` session with date ≥ today; handles none / past-dated planned sessions
-- [ ] `points.ts`: resolve points per entry (explicit value, else rule value), total, total for a month, cumulative series by date (for the chart), per-session and per-sprint totals
-- [ ] `badges.ts`: evaluate every rule kind → `{unlocked, unlockedOn | null, progress {current, target}, howToUnlock text}`; unlock date = date the threshold was first crossed (points/sessions/projects/activity), sprint `completedOn`, phase = latest `completedOn` of its sprints, manual `earnedOn`
-- [ ] `reports.ts`: months from start date to today (`YYYY-MM` list); per-month stats: sessions held vs planned, cancelled, sprints completed in month, current sprint at month end, ready checks ticked in month, projects finished, points earned, badges unlocked; merge monthly note if present
-- [ ] `resources.ts`: flatten sprint + session files into one list with sprint/session/type/date metadata, newest first
-- [ ] `dates.ts`: timezone-safe ISO date helpers (no `Date` timezone drift), month labels
-- [ ] Vitest suites for each module covering edge cases (empty content, ties, boundary dates, month edges, missing optional dates, threshold exactly hit)
+- [x] `progress.ts`: overall % (done sprints + partial credit from ready checks of the current sprint), sprints done count, checks ticked count
+- [x] `currentSprint.ts`: first `in-progress` sprint, else first `upcoming`, else last sprint (journey complete)
+- [x] `nextSession.ts`: earliest `planned` session with date ≥ today; handles none / past-dated planned sessions
+- [x] `points.ts`: resolve points per entry (explicit value, else rule value), total, total for a month, cumulative series by date (for the chart), per-session and per-sprint totals
+- [x] `badges.ts`: evaluate every rule kind → `{unlocked, unlockedOn | null, progress {current, target}, howToUnlock text}`; unlock date = date the threshold was first crossed (points/sessions/projects/activity), sprint `completedOn`, phase = latest `completedOn` of its sprints, manual `earnedOn`
+- [x] `reports.ts`: months from start date to today (`YYYY-MM` list); per-month stats: sessions held vs planned, cancelled, sprints completed in month, current sprint at month end, ready checks ticked in month, projects finished, points earned, badges unlocked; merge monthly note if present
+- [x] `resources.ts`: flatten sprint + session files into one list with sprint/session/type/date metadata, newest first
+- [x] `dates.ts`: timezone-safe ISO date helpers (no `Date` timezone drift), month labels
+- [x] Vitest suites for each module covering edge cases (empty content, ties, boundary dates, month edges, missing optional dates, threshold exactly hit)
 
 **Acceptance gate (Phase 2)**
 - `npm run verify` passes; ≥ 1 test file per derive module; `vitest run --coverage` not required, but every exported function has at least one test and `badges.ts` / `reports.ts` cover every rule kind and every stat.
