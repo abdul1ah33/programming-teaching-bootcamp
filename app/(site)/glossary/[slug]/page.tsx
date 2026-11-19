@@ -17,7 +17,7 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTerm((await params).slug);
-  return { title: t ? `${t.term} · Glossary` : 'Glossary' };
+  return { title: t ? `${t.term} · Word list` : 'Word list' };
 }
 
 export default async function TermPage({ params }: Props) {
@@ -34,7 +34,7 @@ export default async function TermPage({ params }: Props) {
     <Container className="max-w-[820px]">
       <nav aria-label="Breadcrumb" className="pt-8 text-sm text-muted">
         <Link href="/glossary" className="hover:text-text">
-          Glossary
+          Word list
         </Link>
         <span aria-hidden="true" className="mx-2">
           /
@@ -45,9 +45,7 @@ export default async function TermPage({ params }: Props) {
       <article>
         <header className="pb-6 pt-6">
           {sprint && (
-            <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
-              First met in Sprint {sprint.number}
-            </p>
+            <p className="text-sm font-medium text-primary-hover dark:text-primary">You first meet this in Sprint {sprint.number}</p>
           )}
           <h1 className="mt-3 font-serif text-[2.6rem] font-medium leading-[1.05] tracking-[-0.015em] sm:text-6xl">{term.term}</h1>
         </header>
@@ -64,7 +62,7 @@ export default async function TermPage({ params }: Props) {
         <div className="mt-10 grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
           {sprint && (
             <section aria-labelledby="sprint">
-              <SectionHeading id="sprint">Where it comes up</SectionHeading>
+              <SectionHeading id="sprint">Where you’ll use it</SectionHeading>
               <TextLink href={`/sprints/${sprint.slug}`}>{sprintLabel(sprint)}</TextLink>
             </section>
           )}
@@ -91,7 +89,7 @@ export default async function TermPage({ params }: Props) {
       <nav aria-label="Other words" className="mt-14 grid gap-3 border-t border-border pt-6 sm:grid-cols-2">
         {previous ? (
           <Link href={`/glossary/${previous.slug}`} className="group rounded-lg p-3 hover:bg-surface-2">
-            <span className="flex items-center gap-1.5 font-mono text-xs text-muted">
+            <span className="flex items-center gap-1.5 text-sm text-muted">
               <ArrowLeft className="size-3.5" aria-hidden="true" /> Previous
             </span>
             <span className="mt-1 block font-medium group-hover:underline">{previous.term}</span>
@@ -101,7 +99,7 @@ export default async function TermPage({ params }: Props) {
         )}
         {next && (
           <Link href={`/glossary/${next.slug}`} className="group rounded-lg p-3 text-right hover:bg-surface-2">
-            <span className="flex items-center justify-end gap-1.5 font-mono text-xs text-muted">
+            <span className="flex items-center justify-end gap-1.5 text-sm text-muted">
               Next <ArrowRight className="size-3.5" aria-hidden="true" />
             </span>
             <span className="mt-1 block font-medium group-hover:underline">{next.term}</span>

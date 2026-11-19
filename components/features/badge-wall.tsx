@@ -26,14 +26,14 @@ export function BadgeWall({ statuses }: { statuses: BadgeStatus[] }) {
             {s.unlocked ? (
               <>
                 <p className="mt-0.5 text-sm text-muted">{s.badge.description}</p>
-                <p className="mt-1.5 font-mono text-xs text-muted tabular">
-                  {s.unlockedOn ? `Unlocked ${formatDate(s.unlockedOn)}` : 'Unlocked'}
+                <p className="mt-1.5 text-sm text-muted">
+                  {s.unlockedOn ? `Earned ${formatDate(s.unlockedOn)}` : 'Earned'}
                 </p>
               </>
             ) : (
               <>
                 <p className="mt-0.5 text-sm text-text">
-                  <span className="sr-only">Locked. </span>
+                  <span className="sr-only">Locked. How to get it: </span>
                   {s.howToUnlock}
                 </p>
                 {s.progress && (

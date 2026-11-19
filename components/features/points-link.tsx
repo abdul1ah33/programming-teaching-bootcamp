@@ -1,5 +1,6 @@
 'use client';
 
+import { Star } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cx } from '@/components/ui/primitives';
@@ -13,10 +14,11 @@ export function PointsLink({ total }: { total: number }) {
       aria-current={active ? 'page' : undefined}
       aria-label={`Points: ${total}`}
       className={cx(
-        'inline-flex h-9 items-center gap-2 rounded-md border px-2.5 text-sm transition-colors duration-150',
+        'inline-flex h-9 items-center gap-1.5 rounded-md border px-2.5 text-sm transition-colors duration-150',
         active ? 'border-primary bg-primary-tint text-text' : 'border-border text-text hover:border-border-strong hover:bg-surface-2',
       )}
     >
+      <Star className="size-4 text-primary" aria-hidden="true" />
       <span className="hidden text-muted sm:inline">Points</span>
       <span className="font-mono font-medium tabular text-primary-hover dark:text-primary">{total}</span>
     </Link>

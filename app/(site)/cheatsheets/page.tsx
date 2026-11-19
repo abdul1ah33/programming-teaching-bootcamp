@@ -11,9 +11,9 @@ export default async function CheatSheetsPage() {
   return (
     <Container className="max-w-[880px]">
       <PageHeader
-        eyebrow="Learn"
+        eyebrow="Help"
         title="Cheat sheets"
-        lead="The syntax you need, on a couple of printable pages. Grouped by sprint, in the order you learn it."
+        lead="All the code you need on a few pages, in the order you learn it. Keep one open while you practise, or print it out."
       />
       <ul className="grid gap-4 sm:grid-cols-2">
         {sheets.map((sheet) => {
@@ -22,7 +22,7 @@ export default async function CheatSheetsPage() {
           return (
             <li key={sheet.slug}>
               <Link href={`/cheatsheets/${sheet.slug}`} className="group block rounded-lg border border-border bg-surface p-5 hover:border-border-strong">
-                <span className="font-mono text-xs text-muted tabular">
+                <span className="text-sm text-muted">
                   Sprints {Math.min(...nums)}–{Math.max(...nums)} · {items} examples
                 </span>
                 <span className="mt-2 block font-serif text-2xl font-medium group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4">

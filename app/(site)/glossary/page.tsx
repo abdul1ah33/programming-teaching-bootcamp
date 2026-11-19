@@ -4,7 +4,7 @@ import { Container, PageHeader } from '@/components/ui/primitives';
 import { getGlossary, getSprints } from '@/lib/content';
 import { sprintLabel, sprintMap } from '@/lib/labels';
 
-export const metadata: Metadata = { title: 'Glossary' };
+export const metadata: Metadata = { title: 'Word list' };
 
 export default async function GlossaryPage() {
   const [terms, sprints] = await Promise.all([getGlossary(), getSprints()]);
@@ -22,8 +22,8 @@ export default async function GlossaryPage() {
     <Container className="max-w-[960px]">
       <PageHeader
         eyebrow={`${terms.length} words`}
-        title="Glossary"
-        lead="The words you’ll meet on the way, each explained in a few sentences with a small example."
+        title="Word list"
+        lead="Coding words you’ll hear in lessons, explained in plain English with a small example. Stuck on a word? Look it up here."
       />
       <GlossaryList items={items} sprints={used} />
     </Container>

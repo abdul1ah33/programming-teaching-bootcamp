@@ -22,7 +22,7 @@ export async function CodeBlock({
     <div className={cx('code-block group relative rounded-md border border-border bg-surface-2', className)}>
       <div className="absolute right-2 top-2 flex items-center gap-2">
         {showLanguage && (
-          <span className="font-mono text-[0.65rem] uppercase tracking-[0.1em] text-muted">
+          <span className="text-xs font-medium text-muted">
             {language === 'c' ? 'C' : 'Python'}
           </span>
         )}

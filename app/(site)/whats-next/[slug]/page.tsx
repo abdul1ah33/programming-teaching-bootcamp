@@ -17,7 +17,7 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const f = await getField((await params).slug);
-  return { title: f ? `${f.name} · What’s next` : 'What’s next' };
+  return { title: f ? `${f.name} · After the course` : 'After the course' };
 }
 
 export default async function FieldPage({ params }: Props) {
@@ -33,7 +33,7 @@ export default async function FieldPage({ params }: Props) {
     <Container className="max-w-[1000px]">
       <nav aria-label="Breadcrumb" className="pt-8 text-sm text-muted">
         <Link href="/whats-next" className="hover:text-text">
-          What’s next
+          After the course
         </Link>
         <span aria-hidden="true" className="mx-2">
           /
@@ -46,7 +46,7 @@ export default async function FieldPage({ params }: Props) {
           <ContentIcon name={field.icon} className="size-7" strokeWidth={1.5} />
         </span>
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">To explore after the capstone</p>
+          <p className="text-sm font-medium text-primary-hover dark:text-primary">Something to try after the course</p>
           <h1 className="mt-2 font-serif text-[2.4rem] font-medium leading-[1.05] tracking-[-0.015em] sm:text-5xl">{field.name}</h1>
           <p className="mt-3 max-w-[56ch] text-lg text-muted">{field.summary}</p>
         </div>
@@ -113,7 +113,7 @@ export default async function FieldPage({ params }: Props) {
       <nav aria-label="Other fields" className="mt-14 grid gap-3 border-t border-border pt-6 sm:grid-cols-2">
         {previous ? (
           <Link href={`/whats-next/${previous.slug}`} className="group rounded-lg p-3 hover:bg-surface-2">
-            <span className="flex items-center gap-1.5 font-mono text-xs text-muted">
+            <span className="flex items-center gap-1.5 text-sm text-muted">
               <ArrowLeft className="size-3.5" aria-hidden="true" /> Previous
             </span>
             <span className="mt-1 block font-medium group-hover:underline">{previous.name}</span>
@@ -123,7 +123,7 @@ export default async function FieldPage({ params }: Props) {
         )}
         {next && (
           <Link href={`/whats-next/${next.slug}`} className="group rounded-lg p-3 text-right hover:bg-surface-2">
-            <span className="flex items-center justify-end gap-1.5 font-mono text-xs text-muted">
+            <span className="flex items-center justify-end gap-1.5 text-sm text-muted">
               Next <ArrowRight className="size-3.5" aria-hidden="true" />
             </span>
             <span className="mt-1 block font-medium group-hover:underline">{next.name}</span>

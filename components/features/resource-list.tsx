@@ -3,7 +3,7 @@
 import { Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { fileTypeLabel, FileRow } from '@/components/ui/file-row';
+import { FileRow } from '@/components/ui/file-row';
 import { ChipFilter, SelectFilter } from '@/components/ui/filter';
 import { EmptyState } from '@/components/ui/primitives';
 import { formatDate } from '@/lib/derive/dates';
@@ -79,7 +79,7 @@ function ResourceListView({
           options={[{ value: 'all', label: 'All sprints' }, ...usedSprints.map((s) => ({ value: s.slug, label: s.label }))]}
         />
         <ChipFilter
-          label="Type"
+          label="Kind of file"
           value={type}
           onChange={setType}
           options={[
@@ -103,7 +103,7 @@ function ResourceListView({
                 meta={
                   r.session ? (
                     <Link href={`/sessions/${r.session.slug}`} className="hover:text-text hover:underline">
-                      Session {r.session.number} · {formatDate(r.session.date)}
+                      Lesson {r.session.number} · {formatDate(r.session.date)}
                     </Link>
                   ) : r.sprint ? (
                     <Link href={`/sprints/${r.sprint.slug}`} className="hover:text-text hover:underline">
@@ -117,18 +117,18 @@ function ResourceListView({
           ))}
         </ul>
       ) : (
-        <EmptyState title={resources.length ? 'No files match these filters' : 'No files yet'}>
+        <EmptyState title={resources.length ? 'No files match' : 'No files yet'}>
           {resources.length ? (
             <button type="button" className="font-medium text-primary underline underline-offset-2" onClick={() => { setSprint('all'); setType('all'); }}>
               Show all files
             </button>
           ) : (
-            'Slides, notes, exercises and solutions will appear here after each session.'
+            'Slides, notes and exercise sheets will show up here after each lesson.'
           )}
         </EmptyState>
       )}
       <p className="mt-4 text-xs text-muted">
-        Types: {FILE_TYPES.map((t) => fileTypeLabel(t.value)).join(', ')}. PDFs open in the browser; other files download.
+        Tip: PDFs open right in your browser. Other files download to your device.
       </p>
     </div>
   );

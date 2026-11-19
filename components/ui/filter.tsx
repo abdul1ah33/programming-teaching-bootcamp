@@ -24,7 +24,7 @@ export function SelectFilter({
 }) {
   return (
     <div className="flex min-w-0 flex-col gap-1">
-      <label htmlFor={id} className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted">
+      <label htmlFor={id} className="text-sm font-medium text-muted">
         {label}
       </label>
       <select
@@ -58,7 +58,7 @@ export function ChipFilter({
 }) {
   return (
     <fieldset className="flex min-w-0 flex-col gap-1">
-      <legend className="mb-1 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted">{label}</legend>
+      <legend className="mb-1 text-sm font-medium text-muted">{label}</legend>
       <div className="flex flex-wrap gap-1.5">
         {options.map((o) => {
           const active = o.value === value;

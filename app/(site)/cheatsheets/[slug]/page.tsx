@@ -38,7 +38,7 @@ export default async function CheatSheetPage({ params }: Props) {
     <Container className="cheatsheet">
       <header className="flex flex-col gap-4 pb-8 pt-10 sm:flex-row sm:items-end sm:justify-between sm:pt-14 print:pb-3 print:pt-0">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted print:hidden">
+          <p className="text-sm font-medium text-muted print:hidden">
             <Link href="/cheatsheets" className="hover:text-text">
               Cheat sheets
             </Link>

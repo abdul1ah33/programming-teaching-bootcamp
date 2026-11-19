@@ -32,7 +32,7 @@ export default async function ProjectPage({ params }: Props) {
     <Container className="max-w-[1000px]">
       <nav aria-label="Breadcrumb" className="pt-8 text-sm text-muted">
         <Link href="/projects" className="hover:text-text">
-          Projects
+          My projects
         </Link>
         <span aria-hidden="true" className="mx-2">
           /
@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: Props) {
         <span className="line-clamp-1 inline">{project.title}</span>
       </nav>
       <header className="pb-8 pt-6">
-        <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
+        <p className="text-sm font-medium text-primary-hover dark:text-primary">
           {sprint ? `Sprint ${sprint.number} project` : 'Project'}
           {project.finishedOn && ` · Finished ${formatDate(project.finishedOn)}`}
         </p>
@@ -57,7 +57,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="lg:col-span-7">
           <ProjectVisual project={project} sprintNumber={sprint?.number} priority />
           <section aria-labelledby="about" className="mt-8">
-            <SectionHeading id="about">About the project</SectionHeading>
+            <SectionHeading id="about">What it does</SectionHeading>
             <p className="max-w-[65ch] whitespace-pre-line text-[0.98rem] leading-relaxed">{project.description}</p>
           </section>
         </div>

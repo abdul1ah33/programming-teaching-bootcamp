@@ -15,7 +15,7 @@ export interface TimelineProps {
 const STATUS_OPTIONS = [
   { value: 'all', label: 'All' },
   { value: 'done', label: 'Done' },
-  { value: 'planned', label: 'Planned' },
+  { value: 'planned', label: 'Coming up' },
   { value: 'cancelled', label: 'Cancelled' },
 ];
 
@@ -68,21 +68,21 @@ export function SessionsTimeline({ sessions, sprints }: TimelineProps) {
           options={[{ value: 'all', label: 'All sprints' }, ...usedSprints.map((s) => ({ value: s.slug, label: s.label }))]}
         />
         <ChipFilter
-          label="Status"
+          label="Show"
           value={status}
           onChange={setStatus}
           options={STATUS_OPTIONS.map((o) => ({ ...o, count: count(o.value) }))}
         />
       </div>
       <p className="sr-only" aria-live="polite">
-        {shown.length} sessions shown
+        {shown.length} lessons shown
       </p>
       {shown.length > 0 ? (
         <TimelineList sessions={shown} sprintLabels={labels} />
       ) : (
-        <EmptyState title="No sessions match these filters">
+        <EmptyState title="No lessons match">
           <button type="button" className="font-medium text-primary underline underline-offset-2" onClick={() => { setSprint('all'); setStatus('all'); }}>
-            Show all sessions
+            Show all lessons
           </button>
         </EmptyState>
       )}

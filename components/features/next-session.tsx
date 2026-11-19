@@ -27,9 +27,9 @@ export function NextSession({ sessions, schedule }: { sessions: NextSessionItem[
 
   return (
     <div className="flex h-full flex-col p-5">
-      <p className="flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">
-        <CalendarDays className="size-3.5" aria-hidden="true" />
-        Next session
+      <p className="flex items-center gap-2 text-sm font-medium text-muted">
+        <CalendarDays className="size-4" aria-hidden="true" />
+        Your next lesson
       </p>
       <div className="mt-3 min-h-[4.5rem]" aria-live="polite">
         {today === null ? (
@@ -39,19 +39,16 @@ export function NextSession({ sessions, schedule }: { sessions: NextSessionItem[
           </div>
         ) : next ? (
           <Link href={`/sessions/${next.slug}`} className="group block">
-            <p className="font-mono text-lg font-medium text-text tabular">
-              {formatDate(next.date, 'long')}
+            <p className="text-lg font-semibold text-text">
+              {capitalise(relativeDay(next.date, today))} · {formatDate(next.date, 'long').replace(/ \d{4}$/, '')}
             </p>
-            <p className="mt-0.5 text-sm text-primary-hover dark:text-primary">{capitalise(relativeDay(next.date, today))}</p>
-            <p className="mt-2 text-sm text-text group-hover:underline">
-              <span className="font-mono text-muted tabular">#{next.number}</span> {next.title}
-            </p>
-            <p className="mt-0.5 text-xs text-muted">{next.sprintLabel}</p>
+            <p className="mt-1 text-[0.95rem] text-text group-hover:underline">{next.title}</p>
+            <p className="mt-0.5 text-sm text-muted">{next.sprintLabel}</p>
           </Link>
         ) : (
           <div>
-            <p className="text-sm font-medium text-text">Nothing booked yet.</p>
-            <p className="mt-1 text-sm text-muted">The next session will appear here once it’s planned.</p>
+            <p className="text-lg font-semibold text-text">Not booked yet.</p>
+            <p className="mt-1 text-sm text-muted">Your next lesson shows up here once it’s planned.</p>
           </div>
         )}
       </div>

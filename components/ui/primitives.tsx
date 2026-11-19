@@ -28,7 +28,7 @@ export function PageHeader({
 }) {
   return (
     <header className="pb-8 pt-10 sm:pb-10 sm:pt-14">
-      {eyebrow && <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">{eyebrow}</p>}
+      {eyebrow && <p className="text-sm font-medium text-primary-hover dark:text-primary">{eyebrow}</p>}
       <h1 className="mt-3 max-w-[22ch] font-serif text-[2.25rem] font-medium leading-[1.08] tracking-[-0.01em] text-text sm:text-5xl">
         {title}
       </h1>
@@ -58,7 +58,7 @@ export function SectionHeading({
         {children}
       </Tag>
       {aside !== undefined && aside !== null && aside !== false && (
-        <div className="font-mono text-xs text-muted tabular">{aside}</div>
+        <div className="text-sm text-muted tabular">{aside}</div>
       )}
     </div>
   );
@@ -98,7 +98,7 @@ export function Tag({ children, className }: { children: ReactNode; className?: 
   return (
     <span
       className={cx(
-        'inline-flex items-center gap-1 rounded-[5px] border border-border px-1.5 py-px font-mono text-[0.7rem] leading-5 text-muted',
+        'inline-flex items-center gap-1 rounded-[5px] border border-border px-1.5 py-px text-xs leading-5 text-muted',
         className,
       )}
     >
@@ -173,7 +173,7 @@ export function TextLink({ className, ...props }: ComponentProps<typeof Link>) {
 export function Stat({ label, value, hint }: { label: string; value: ReactNode; hint?: ReactNode }) {
   return (
     <div>
-      <dt className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted">{label}</dt>
+      <dt className="text-sm font-medium text-muted">{label}</dt>
       <dd className="mt-1 font-mono text-2xl font-medium text-text tabular">{value}</dd>
       {hint && <dd className="mt-0.5 text-xs text-muted">{hint}</dd>}
     </div>

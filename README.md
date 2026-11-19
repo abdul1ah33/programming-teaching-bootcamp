@@ -139,7 +139,7 @@ Each of these was tested in the admin; the number is how many fields you touch.
 |---|---|
 | **Mark a session done** (1 field) | *Sessions* → the session → **Status: Done** → Save. Optionally write a summary in the editor at the bottom. |
 | **Add a new session** (3 fields) | *Sessions* → **Add** → *Session number* (just `12`), *Title*, *Sprint* → Create. Date defaults to today and status to Planned. Planned sessions with a future date appear as "Next session" on the home page. |
-| **Attach files** to a session (3 fields) | Open the session → *Files* → **Add** → label, type (slides / notes / exercises / solution / other), **Choose file** → Add → Save. PDFs open in the browser and have an inline preview on Resources; other files download, named after the label. |
+| **Attach files** to a session (3 fields) | Open the session → *Files* → **Add** → label, type (slides / notes / exercises / solution / other), **Choose file** → Add → Save. PDFs open in the browser and have an inline preview on the *My files* page; other files download, named after the label. |
 | **Attach files to a sprint** | *Sprints* → the sprint → *Files* (below the ready checks) → **Add** → same as above. |
 | **Tick a "ready to move on" check** (1 field) | *Sprints* → the sprint → *Ready to move on when…* → click the check → tick **Done** (optionally set *Done on* so it counts in that month's report) → Done → Save. |
 | **Change a sprint's status** (1 field) | *Sprints* → the sprint → **Status** → Save. When you mark one **Done**, also set **Completed on**: badges and reports use it. Then set the next sprint to In progress. |

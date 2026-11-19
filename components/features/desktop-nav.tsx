@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useId, useRef, useState } from 'react';
 import { cx } from '@/components/ui/primitives';
-import { isActive, LEARN_NAV, PARENTS_NAV, PRIMARY_NAV, type NavLink } from './nav-items';
+import { isActive, LEARN_MENU_LABEL, LEARN_NAV, PARENTS_NAV, PRIMARY_NAV, type NavLink } from './nav-items';
 
 const itemClass = (active: boolean) =>
   cx(
@@ -114,7 +114,7 @@ export function DesktopNav() {
         );
       })}
       <span aria-hidden="true" className="mx-1.5 h-4 w-px bg-border" />
-      <Menu label="Learn" items={LEARN_NAV} pathname={pathname} />
+      <Menu label={LEARN_MENU_LABEL} items={LEARN_NAV} pathname={pathname} />
       <Menu label="For parents" items={PARENTS_NAV} pathname={pathname} />
     </nav>
   );

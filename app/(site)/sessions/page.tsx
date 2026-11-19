@@ -6,7 +6,7 @@ import { getSessions, getSprints } from '@/lib/content';
 import { sessionsDone, timeline } from '@/lib/derive/sessions';
 import { plural, sprintLabel } from '@/lib/labels';
 
-export const metadata: Metadata = { title: 'Sessions' };
+export const metadata: Metadata = { title: 'Lessons' };
 
 export default async function SessionsPage() {
   const [sessions, sprints] = await Promise.all([getSessions(), getSprints()]);
@@ -17,12 +17,12 @@ export default async function SessionsPage() {
   return (
     <Container className="max-w-[880px]">
       <PageHeader
-        eyebrow={`${plural(sessionsDone(sessions), 'session')} done`}
-        title="Sessions"
-        lead="Every session, newest first: what we covered, the files, and the homework."
+        eyebrow={`${plural(sessionsDone(sessions), 'lesson')} so far`}
+        title="Lessons"
+        lead="Every lesson, newest first. Open one to see what we did, its files and the homework."
       />
       {ordered.length === 0 ? (
-        <EmptyState title="No sessions yet">The first session will appear here once it’s added.</EmptyState>
+        <EmptyState title="No lessons yet">Your first lesson will show up here.</EmptyState>
       ) : (
         // Without JavaScript (or before it loads) the full list shows; filters appear once it's ready.
         <Suspense fallback={<TimelineList sessions={ordered} sprintLabels={labels} />}>

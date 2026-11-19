@@ -39,7 +39,7 @@ export function GlossaryList({ items, sprints }: { items: GlossaryItem[]; sprint
       <div className="sticky top-14 z-20 -mx-4 mb-8 border-b border-border bg-bg/95 px-4 pb-4 pt-2 backdrop-blur-[6px] sm:mx-0 sm:rounded-lg sm:border sm:bg-surface sm:p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
           <div className="flex min-w-0 flex-1 flex-col gap-1">
-            <label htmlFor="glossary-search" className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-muted">
+            <label htmlFor="glossary-search" className="text-sm font-medium text-muted">
               Find a word
             </label>
             <div className="relative">
@@ -49,7 +49,7 @@ export function GlossaryList({ items, sprints }: { items: GlossaryItem[]; sprint
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="e.g. loop, pointer, list"
+                placeholder="Type a word, like loop or list"
                 autoComplete="off"
                 className="h-9 w-full rounded-md border border-control bg-surface pl-8 pr-3 text-sm text-text placeholder:text-muted hover:border-text"
               />
@@ -83,7 +83,7 @@ export function GlossaryList({ items, sprints }: { items: GlossaryItem[]; sprint
       </p>
 
       {groups.length === 0 ? (
-        <EmptyState title="No words match">
+        <EmptyState title="No words match that">
           <button
             type="button"
             className="font-medium text-primary underline underline-offset-2"
@@ -108,7 +108,7 @@ export function GlossaryList({ items, sprints }: { items: GlossaryItem[]; sprint
                     <Link href={`/glossary/${t.slug}`} className="group block rounded-md px-2 py-2.5 -mx-2 hover:bg-surface-2/70">
                       <span className="flex items-baseline justify-between gap-3">
                         <span className="font-medium text-text group-hover:underline">{t.term}</span>
-                        <span className="shrink-0 font-mono text-xs text-muted tabular">Sprint {t.sprintNumber}</span>
+                        <span className="shrink-0 text-xs text-muted">Sprint {t.sprintNumber}</span>
                       </span>
                       <span className="mt-0.5 line-clamp-2 block text-sm text-muted">{t.explanation}</span>
                     </Link>

@@ -18,24 +18,24 @@ const check = (name, ok) => results.push(`${ok ? 'PASS' : 'FAIL'}  ${name}`);
     await page.keyboard.press('Tab');
     seen.push(await page.evaluate(() => (document.activeElement?.getAttribute('aria-label') || document.activeElement?.textContent || '').trim()));
   }
-  for (const label of ['Home', 'Road map', 'Sessions', 'Resources', 'Projects', 'Learn', 'For parents']) {
+  for (const label of ['Home', 'My path', 'Lessons', 'My files', 'My projects', 'Help', 'For parents']) {
     check(`Tab reaches "${label}"`, seen.includes(label));
   }
   check('Tab reaches Points link', seen.some((s) => s.startsWith('Points')));
   check('Tab reaches theme toggle', seen.some((s) => /theme/i.test(s)));
 
-  const learn = page.getByRole('button', { name: 'Learn' });
+  const learn = page.getByRole('button', { name: 'Help' });
   await learn.focus();
   const ring = await learn.evaluate((el) => getComputedStyle(el).outlineStyle !== 'none' && getComputedStyle(el).outlineWidth !== '0px');
   check('focused nav button shows an outline', ring);
   await page.keyboard.press('Enter');
-  check('Enter opens Learn menu', (await learn.getAttribute('aria-expanded')) === 'true' && (await page.getByRole('link', { name: /Glossary/ }).first().isVisible()));
+  check('Enter opens Help menu', (await learn.getAttribute('aria-expanded')) === 'true' && (await page.getByRole('link', { name: /Word list/ }).first().isVisible()));
   if (out) await page.screenshot({ path: `${out}/keyboard-learn-menu-open.png` });
   await page.keyboard.press('Escape');
-  check('Esc closes Learn menu', (await learn.getAttribute('aria-expanded')) === 'false');
-  check('focus returns to Learn button', await learn.evaluate((el) => el === document.activeElement));
+  check('Esc closes Help menu', (await learn.getAttribute('aria-expanded')) === 'false');
+  check('focus returns to Help button', await learn.evaluate((el) => el === document.activeElement));
   await page.keyboard.press(' ');
-  check('Space opens Learn menu', (await learn.getAttribute('aria-expanded')) === 'true');
+  check('Space opens Help menu', (await learn.getAttribute('aria-expanded')) === 'true');
   await page.keyboard.press('Tab');
   check('Tab moves into the open menu', await page.evaluate(() => document.activeElement?.closest('[id]')?.tagName === 'DIV'));
   await page.mouse.click(10, 700);

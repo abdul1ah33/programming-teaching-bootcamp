@@ -16,10 +16,11 @@ export function SessionRow({ session, sprintLabel }: { session: Session; sprintL
         {month} {year}
       </span>
       <span className="min-w-0">
-        <span className="block text-[0.95rem] font-medium text-text group-hover:underline">
-          <span className="font-mono text-sm font-normal text-muted tabular">#{session.number}</span> {session.title}
+        <span className="block text-[0.95rem] font-medium text-text group-hover:underline">{session.title}</span>
+        <span className="mt-0.5 block text-xs text-muted">
+          Lesson {session.number}
+          {sprintLabel && ` · ${sprintLabel}`}
         </span>
-        {sprintLabel && <span className="mt-0.5 block text-xs text-muted">{sprintLabel}</span>}
       </span>
       <StatusPill status={session.status} className="mt-0.5" />
     </Link>

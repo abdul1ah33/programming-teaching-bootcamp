@@ -5,13 +5,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
 import { cx } from '@/components/ui/primitives';
-import { isActive, LEARN_NAV, PARENTS_NAV, PRIMARY_NAV, type NavLink } from './nav-items';
+import { isActive, LEARN_MENU_LABEL, LEARN_NAV, PARENTS_NAV, PRIMARY_NAV, type NavLink } from './nav-items';
 import { ThemeToggle } from './theme-toggle';
 
 function Group({ title, items, pathname, onNavigate }: { title?: string; items: NavLink[]; pathname: string; onNavigate: () => void }) {
   return (
     <div className="py-2">
-      {title && <p className="px-3 pb-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-muted">{title}</p>}
+      {title && <p className="px-3 pb-1 text-sm font-medium text-muted">{title}</p>}
       <ul>
         {items.map((item) => {
           const active = isActive(pathname, item.href);
@@ -65,7 +65,7 @@ export function MobileNav({ pointsTotal }: { pointsTotal: number }) {
         className="sheet m-0 mt-auto max-h-[85dvh] w-full max-w-none overflow-y-auto rounded-t-xl border border-b-0 border-border bg-surface p-0 text-text backdrop:bg-black/40"
       >
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface px-4 py-3">
-          <span className="font-mono text-xs uppercase tracking-[0.12em] text-muted">Menu</span>
+          <span className="text-sm font-medium text-muted">Menu</span>
           <div className="flex items-center gap-1">
             <ThemeToggle />
             <button
@@ -81,11 +81,11 @@ export function MobileNav({ pointsTotal }: { pointsTotal: number }) {
         <div className="divide-y divide-border px-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
           <Group items={PRIMARY_NAV} pathname={pathname} onNavigate={close} />
           <Group
-            items={[{ href: '/points', label: `Points · ${pointsTotal}` }]}
+            items={[{ href: '/points', label: `My points · ${pointsTotal}` }]}
             pathname={pathname}
             onNavigate={close}
           />
-          <Group title="Learn" items={LEARN_NAV} pathname={pathname} onNavigate={close} />
+          <Group title={LEARN_MENU_LABEL} items={LEARN_NAV} pathname={pathname} onNavigate={close} />
           <Group title="For parents" items={PARENTS_NAV} pathname={pathname} onNavigate={close} />
         </div>
       </dialog>

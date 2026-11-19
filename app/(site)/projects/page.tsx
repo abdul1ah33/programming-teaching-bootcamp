@@ -7,7 +7,7 @@ import { getProjects, getSprints } from '@/lib/content';
 import { formatDate } from '@/lib/derive/dates';
 import { plural, sprintMap } from '@/lib/labels';
 
-export const metadata: Metadata = { title: 'Projects' };
+export const metadata: Metadata = { title: 'My projects' };
 
 export default async function ProjectsPage() {
   const [projects, sprints] = await Promise.all([getProjects(), getSprints()]);
@@ -21,11 +21,11 @@ export default async function ProjectsPage() {
     <Container>
       <PageHeader
         eyebrow={`${plural(finished, 'project')} finished`}
-        title="Projects"
-        lead="Each sprint ends with something you built. Here they all are, newest sprint first."
+        title="My projects"
+        lead="Every sprint ends with something you make yourself. Here they all are, newest first."
       />
       {sorted.length === 0 ? (
-        <EmptyState title="No projects yet">The first project comes at the end of Sprint 0.</EmptyState>
+        <EmptyState title="No projects yet">Your first project comes at the end of Sprint 0.</EmptyState>
       ) : (
         <ul className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {sorted.map((p, i) => {
@@ -35,7 +35,7 @@ export default async function ProjectsPage() {
                 <Link href={`/projects/${p.slug}`} className="group block">
                   <ProjectVisual project={p} sprintNumber={sprint?.number} priority={i < 3} />
                   <div className="mt-3 flex items-center justify-between gap-2">
-                    <span className="font-mono text-xs text-muted tabular">
+                    <span className="text-sm text-muted">
                       Sprint {sprint?.number ?? '–'}
                       {p.finishedOn && ` · ${formatDate(p.finishedOn)}`}
                     </span>

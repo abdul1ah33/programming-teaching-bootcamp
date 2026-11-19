@@ -14,7 +14,6 @@ import { neighbours } from '@/lib/derive/current-sprint';
 import { formatDate } from '@/lib/derive/dates';
 import { sprintProgress } from '@/lib/derive/progress';
 import { sessionsForSprint } from '@/lib/derive/sessions';
-import { phaseLabel } from '@/lib/labels';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -51,7 +50,7 @@ export default async function SprintPage({ params }: Props) {
     <Container>
       <nav aria-label="Breadcrumb" className="pt-8 text-sm text-muted">
         <Link href="/roadmap" className="hover:text-text">
-          Road map
+          My path
         </Link>
         <span aria-hidden="true" className="mx-2">
           /
@@ -61,22 +60,25 @@ export default async function SprintPage({ params }: Props) {
 
       <header className="grid gap-6 pb-10 pt-6 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-8">
-          <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
-            Sprint {sprint.number} · {phaseLabel(sprint.phase)} · About {sprint.duration}
+          <p className="text-sm font-medium text-primary-hover dark:text-primary">
+            Sprint {sprint.number} · part {sprints.findIndex((x) => x.slug === sprint.slug) + 1} of {sprints.length} · takes about {sprint.duration}
           </p>
           <h1 className="mt-3 font-serif text-[2.4rem] font-medium leading-[1.06] tracking-[-0.015em] sm:text-[3.25rem]">
             {sprint.title}
           </h1>
-          <p className="mt-4 max-w-[58ch] text-lg leading-relaxed text-muted">{sprint.goal}</p>
+          <p className="mt-4 max-w-[58ch] text-lg leading-relaxed text-text">{sprint.goal}</p>
+          <p className="mt-3 max-w-[58ch] text-sm text-muted">
+            A sprint is one part of the course. You move on to the next one when you can do everything on your checklist.
+          </p>
         </div>
         <div className="self-end lg:col-span-4">
           <div className="flex items-center justify-between gap-3">
-            <StatusPill status={sprint.status} />
+            <StatusPill status={sprint.status} kind="sprint" />
             {sprint.status === 'done' && sprint.completedOn ? (
-              <span className="font-mono text-xs text-muted tabular">Completed {formatDate(sprint.completedOn)}</span>
+              <span className="text-sm text-muted">Finished {formatDate(sprint.completedOn)}</span>
             ) : (
-              <span className="font-mono text-xs text-muted tabular">
-                {progress.checksDone} of {progress.checksTotal} checks
+              <span className="text-sm text-muted">
+                {progress.checksDone} of {progress.checksTotal} on your checklist
               </span>
             )}
           </div>
@@ -87,6 +89,28 @@ export default async function SprintPage({ params }: Props) {
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-10">
         {/* Main column */}
         <div className="space-y-10 lg:col-span-7">
+          <section aria-labelledby="build">
+            <SectionHeading id="build">What you’ll make</SectionHeading>
+            <p className="max-w-[62ch] border-l-2 border-primary pl-4 font-serif text-xl leading-relaxed text-text">
+              {sprint.build}
+            </p>
+            {sprintProjects.length > 0 && (
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                {sprintProjects.map((p) => (
+                  <li key={p.slug}>
+                    <CardLink href={`/projects/${p.slug}`} className="p-4">
+                      <span className="flex items-center justify-between gap-2">
+                        <span className="text-sm font-medium text-text">{p.title}</span>
+                        <StatusPill status={p.status} />
+                      </span>
+                      <span className="mt-1 line-clamp-2 block text-sm text-muted">{p.description}</span>
+                    </CardLink>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+
           <section aria-labelledby="topics">
             <SectionHeading id="topics" aside={sprint.topics.length}>
               What you’ll learn
@@ -117,43 +141,23 @@ export default async function SprintPage({ params }: Props) {
 
           <section aria-labelledby="missions">
             <SectionHeading id="missions" aside={sprint.missions.length}>
-              Practice missions
+              Practice tasks
             </SectionHeading>
             <ol className="divide-y divide-border rounded-lg border border-border bg-surface">
               {sprint.missions.map((m, i) => (
                 <li key={m} className="flex gap-4 px-4 py-3 text-[0.95rem] leading-6">
-                  <span className="w-5 shrink-0 pt-px font-mono text-sm text-muted tabular">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary-tint font-mono text-xs font-medium text-primary-hover tabular dark:text-primary">
+                    {i + 1}
+                  </span>
                   <span>{m}</span>
                 </li>
               ))}
             </ol>
           </section>
 
-          <section aria-labelledby="build">
-            <SectionHeading id="build">What you’ll build</SectionHeading>
-            <p className="max-w-[62ch] border-l-2 border-primary pl-4 font-serif text-xl leading-relaxed text-text">
-              {sprint.build}
-            </p>
-            {sprintProjects.length > 0 && (
-              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-                {sprintProjects.map((p) => (
-                  <li key={p.slug}>
-                    <CardLink href={`/projects/${p.slug}`} className="p-4">
-                      <span className="flex items-center justify-between gap-2">
-                        <span className="text-sm font-medium text-text">{p.title}</span>
-                        <StatusPill status={p.status} />
-                      </span>
-                      <span className="mt-1 line-clamp-2 block text-sm text-muted">{p.description}</span>
-                    </CardLink>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-
           <section aria-labelledby="sessions">
             <SectionHeading id="sessions" aside={related.length}>
-              Sessions in this sprint
+              Lessons in this sprint
             </SectionHeading>
             {related.length > 0 ? (
               <Card className="divide-y divide-border p-2">
@@ -162,7 +166,7 @@ export default async function SprintPage({ params }: Props) {
                 ))}
               </Card>
             ) : (
-              <EmptyState title="No sessions yet">Sessions for this sprint will be listed here.</EmptyState>
+              <EmptyState title="No lessons yet">Lessons for this sprint will show up here.</EmptyState>
             )}
           </section>
         </div>
@@ -170,12 +174,12 @@ export default async function SprintPage({ params }: Props) {
         {/* Side column */}
         <aside className="order-first space-y-6 self-start lg:sticky lg:top-20 lg:order-none lg:col-span-5">
           <Card as="section" aria-labelledby="ready" className="p-5">
-            <SectionHeading id="ready" aside={`${progress.checksDone}/${progress.checksTotal}`}>
-              Ready to move on when you can…
+            <SectionHeading id="ready" aside={`${progress.checksDone} of ${progress.checksTotal}`}>
+              Your checklist: I can…
             </SectionHeading>
             <ReadyChecks checks={sprint.readyChecks} />
-            <p className="mt-4 border-t border-border pt-3 text-xs leading-relaxed text-muted">
-              Your teacher ticks these when you can do them on your own. The sprint is complete when they’re all ticked.
+            <p className="mt-4 border-t border-border pt-3 text-sm leading-relaxed text-muted">
+              Your teacher ticks these when you can do them on your own. When they’re all ticked, you’re ready for the next sprint.
             </p>
           </Card>
 
@@ -185,11 +189,11 @@ export default async function SprintPage({ params }: Props) {
                 id="words"
                 aside={
                   <Link href="/glossary" className="hover:text-text">
-                    Glossary →
+                    Word list →
                   </Link>
                 }
               >
-                Words in this sprint
+                Words to know
               </SectionHeading>
               <ul className="flex flex-wrap gap-2">
                 {sprintTerms.map((t) => (
@@ -206,28 +210,26 @@ export default async function SprintPage({ params }: Props) {
             </Card>
           )}
 
-          <Card as="section" aria-labelledby="files" className="p-5">
+          {sprint.files.length > 0 && (
+            <Card as="section" aria-labelledby="files" className="p-5">
             <SectionHeading id="files" aside={sprint.files.length || undefined}>
-              Sprint files
+              Files for this sprint
             </SectionHeading>
-            {sprint.files.length > 0 ? (
-              <div className="divide-y divide-border">
-                {sprint.files.map((f) => (
-                  <FileRow key={f.url} label={f.label} type={f.type} url={f.url} size={f.size} />
-                ))}
-              </div>
-            ) : (
-              <p className="text-sm text-muted">No sprint files yet. Session files are on each session’s page.</p>
-            )}
+            <div className="divide-y divide-border">
+              {sprint.files.map((f) => (
+                <FileRow key={f.url} label={f.label} type={f.type} url={f.url} size={f.size} />
+              ))}
+            </div>
           </Card>
+          )}
         </aside>
       </div>
 
       <nav aria-label="Other sprints" className="mt-14 grid gap-3 border-t border-border pt-6 sm:grid-cols-2">
         {previous ? (
           <Link href={`/sprints/${previous.slug}`} className="group rounded-lg p-3 hover:bg-surface-2">
-            <span className="flex items-center gap-1.5 font-mono text-xs text-muted">
-              <ArrowLeft className="size-3.5" aria-hidden="true" /> Sprint {previous.number}
+            <span className="flex items-center gap-1.5 text-sm text-muted">
+              <ArrowLeft className="size-3.5" aria-hidden="true" /> Previous sprint
             </span>
             <span className="mt-1 block font-medium text-text group-hover:underline">{previous.title}</span>
           </Link>
@@ -236,8 +238,8 @@ export default async function SprintPage({ params }: Props) {
         )}
         {next && (
           <Link href={`/sprints/${next.slug}`} className="group rounded-lg p-3 text-right hover:bg-surface-2">
-            <span className="flex items-center justify-end gap-1.5 font-mono text-xs text-muted">
-              Sprint {next.number} <ArrowRight className="size-3.5" aria-hidden="true" />
+            <span className="flex items-center justify-end gap-1.5 text-sm text-muted">
+              Next sprint <ArrowRight className="size-3.5" aria-hidden="true" />
             </span>
             <span className="mt-1 block font-medium text-text group-hover:underline">{next.title}</span>
           </Link>

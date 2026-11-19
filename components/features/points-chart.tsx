@@ -169,7 +169,7 @@ export function PointsChart({ series }: { series: PointsDay[] }) {
         )}
       </div>
       <details className="mt-3 text-sm">
-        <summary className="cursor-pointer text-muted hover:text-text">Show as a table</summary>
+        <summary className="cursor-pointer text-muted hover:text-text">Show as a list</summary>
         <table id={tableId} className="mt-2 w-full max-w-md text-left">
           <thead className="font-mono text-xs uppercase tracking-[0.08em] text-muted">
             <tr>

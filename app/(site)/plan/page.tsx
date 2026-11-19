@@ -104,7 +104,7 @@ export default async function PlanPage() {
                               <span className="mt-0.5 block text-sm text-muted">{s.goal}</span>
                             </span>
                             <span className="flex flex-col items-end gap-1.5">
-                              <StatusPill status={s.status} />
+                              <StatusPill status={s.status} kind="sprint" />
                               <span className="font-mono text-xs text-muted">{s.duration}</span>
                             </span>
                           </Link>

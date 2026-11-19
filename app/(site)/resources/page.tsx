@@ -6,7 +6,7 @@ import { getSessions, getSprints } from '@/lib/content';
 import { allResources } from '@/lib/derive/resources';
 import { plural, sprintLabel } from '@/lib/labels';
 
-export const metadata: Metadata = { title: 'Resources' };
+export const metadata: Metadata = { title: 'My files' };
 
 export default async function ResourcesPage() {
   const [sprints, sessions] = await Promise.all([getSprints(), getSessions()]);
@@ -16,8 +16,8 @@ export default async function ResourcesPage() {
     <Container className="max-w-[880px]">
       <PageHeader
         eyebrow={plural(resources.length, 'file')}
-        title="Resources"
-        lead="Every file from every session and sprint in one place. Filter by sprint or by type."
+        title="My files"
+        lead="Every file from your lessons and sprints in one place: slides, notes, exercises and answers."
       />
       <Suspense fallback={<ResourceListFallback resources={resources} sprints={sprintOptions} />}>
         <ResourceList resources={resources} sprints={sprintOptions} />

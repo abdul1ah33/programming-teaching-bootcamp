@@ -258,6 +258,29 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 - README covers every item in SPEC.md "Deliverables" §2 (checked line by line).
 - Commit `Phase 11: README & handover`.
 
+## Phase 12 — Student-friendly pass (requested after handover)
+
+Feedback: "the UI/UX is really hard for a 14-year-old student not in tech to understand — make it more
+focused for a child." Same design system (colours, fonts, layout grid); parent pages (plan, reports)
+keep their content. Not babyish: plain, warm, short sentences.
+
+- [x] Plain-language navigation: Home, My path, Lessons, My files, My projects, Points · "Help" menu (Word list, Cheat sheets, After the course) · "For parents"
+- [x] Plain status words: Coming up / You're here / Finished (sprints), Coming up / Done / Cancelled (lessons), To do / Checked (homework), Working on it / Finished (projects)
+- [x] Replace small uppercase monospace labels with sentence-case labels site-wide (monospace only for code and numbers)
+- [x] Home answers "what now?": next lesson + homework due first, then "What I'm learning now" with the "I can…" checklist, then points/badge, then latest lessons and files; remove adult stats ("0 of 32 checks ticked")
+- [x] "How this site works" card on Home for first visits (3 short points, dismissible, remembered in the browser)
+- [x] One-sentence explanation of "sprint" wherever it first appears (home, path, sprint page)
+- [x] Sprint page reordered: what it's about → "I can…" checklist → what I'll make → what I'll learn → practice → words to know → lessons & files
+- [x] Friendlier empty states and helper text on lessons, files, projects, points, word list
+- [x] Copy check: no jargon left in student pages ("resources", "phase", "checks ticked", "session #", "upcoming")
+
+**Acceptance gate (Phase 12)**
+- `npm run verify` and `npm run check-snippets` pass.
+- Jargon scan of student-facing UI text finds none of: "Resources", "Road map", "checks ticked", "Upcoming", "In progress", "Phase " (outside parent pages).
+- Keyboard, filter, glossary, contrast and print checks still pass (labels updated in QA scripts where renamed).
+- Light + dark screenshots at 375 and 1280 of every student page in `docs/screenshots/phase-12/`, reviewed and fixed.
+- Commit `Phase 12: Student-friendly pass`.
+
 ---
 
 ## Questions

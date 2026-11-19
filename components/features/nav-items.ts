@@ -6,17 +6,19 @@ export interface NavLink {
 
 export const PRIMARY_NAV: NavLink[] = [
   { href: '/', label: 'Home' },
-  { href: '/roadmap', label: 'Road map' },
-  { href: '/sessions', label: 'Sessions' },
-  { href: '/resources', label: 'Resources' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/roadmap', label: 'My path' },
+  { href: '/sessions', label: 'Lessons' },
+  { href: '/resources', label: 'My files' },
+  { href: '/projects', label: 'My projects' },
 ];
 
+/** The "Help" menu: things to look up while learning. */
 export const LEARN_NAV: NavLink[] = [
-  { href: '/glossary', label: 'Glossary', description: 'Words you’ll meet, explained simply' },
-  { href: '/cheatsheets', label: 'Cheat sheets', description: 'Python and C on a page or two' },
-  { href: '/whats-next', label: 'What’s next', description: 'Fields to explore after the capstone' },
+  { href: '/glossary', label: 'Word list', description: 'Coding words explained in plain English' },
+  { href: '/cheatsheets', label: 'Cheat sheets', description: 'The code you need, on one page' },
+  { href: '/whats-next', label: 'After the course', description: 'Things you could build next' },
 ];
+export const LEARN_MENU_LABEL = 'Help';
 
 export const PARENTS_NAV: NavLink[] = [
   { href: '/plan', label: 'Learning plan', description: 'How the course works and how progress is checked' },

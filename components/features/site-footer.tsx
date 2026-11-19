@@ -18,7 +18,7 @@ export async function SiteFooter() {
             Monthly reports
           </Link>
           <Link href="/glossary" className="hover:text-text">
-            Glossary
+            Word list
           </Link>
         </nav>
       </Container>

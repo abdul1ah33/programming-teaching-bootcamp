@@ -103,26 +103,21 @@ function StopCard({ sprint, align }: { sprint: Sprint; align: 'left' | 'right' }
       )}
     >
       <span className={cx('flex flex-wrap items-center gap-2', align === 'right' && 'lg:justify-end')}>
-        <span className="font-mono text-xs text-muted tabular">Sprint {sprint.number}</span>
+        <span className="text-sm font-medium text-muted">Sprint {sprint.number}</span>
         <span aria-hidden="true" className="text-border-strong">
           ·
         </span>
-        <span className="font-mono text-xs text-muted">{sprint.duration}</span>
-        {current && (
-          <span className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-primary-hover dark:text-primary">
-            You are here
-          </span>
-        )}
+        <span className="text-sm text-muted">{sprint.duration}</span>
       </span>
       <span className="mt-1.5 block font-serif text-xl font-medium leading-snug text-text group-hover:underline group-hover:decoration-1 group-hover:underline-offset-4 sm:text-[1.4rem]">
         {sprint.title}
       </span>
       <span className="mt-1.5 line-clamp-2 block text-sm leading-relaxed text-muted">{sprint.goal}</span>
       <span className={cx('mt-3 flex items-center gap-3', align === 'right' && 'lg:justify-end')}>
-        <StatusPill status={sprint.status} />
+        <StatusPill status={sprint.status} kind="sprint" />
         {sprint.status !== 'upcoming' && (
-          <span className="font-mono text-xs text-muted tabular">
-            {p.checksDone}/{p.checksTotal} checks
+          <span className="text-sm text-muted">
+            {p.checksDone} of {p.checksTotal} on checklist
           </span>
         )}
       </span>
@@ -172,11 +167,9 @@ export function RoadMap({ sprints }: { sprints: Sprint[] }) {
             >
               <div className="relative col-start-1 row-start-1 lg:col-start-2">{row.n > 1 && <StraightSegment solid={row.solid} />}</div>
               <h2 className="col-start-2 row-start-1 flex items-baseline gap-3 pt-6 lg:col-span-3 lg:col-start-1 lg:grid lg:grid-cols-[1fr_7rem_1fr] lg:gap-0">
-                <span className="font-mono text-xs uppercase tracking-[0.12em] text-muted tabular lg:pr-4 lg:text-right">
-                  Phase {row.n}
-                </span>
+                <span className="text-sm font-medium text-muted lg:pr-4 lg:text-right">Part {row.n}</span>
                 <span className="hidden lg:block" />
-                <span className="text-sm font-semibold text-text lg:pl-4">{row.phase.label}</span>
+                <span className="text-base font-semibold text-text lg:pl-4">{row.phase.label}</span>
               </h2>
             </li>
           );

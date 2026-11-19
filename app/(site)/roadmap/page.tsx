@@ -4,7 +4,7 @@ import { Container, PageHeader } from '@/components/ui/primitives';
 import { getSprints } from '@/lib/content';
 import { overallProgress } from '@/lib/derive/progress';
 
-export const metadata: Metadata = { title: 'Road map' };
+export const metadata: Metadata = { title: 'My path' };
 
 export default async function RoadMapPage() {
   const sprints = await getSprints();
@@ -12,22 +12,22 @@ export default async function RoadMapPage() {
   return (
     <Container>
       <PageHeader
-        eyebrow={`${progress.sprintsDone} of ${progress.sprintsTotal} sprints done`}
-        title="The road map"
-        lead="Ten stops, from first ideas to a finished project. Each stop is a sprint. The times are estimates: you move on when you’re ready, not when the calendar says so."
+        eyebrow={`${progress.sprintsDone} of ${progress.sprintsTotal} sprints finished`}
+        title="My path"
+        lead="The course has 10 parts called sprints, from your first ideas to a project of your own. Tap any sprint to see what’s in it. There’s no rush: you move on when you’re ready, not when the calendar says so."
       >
-        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted" aria-label="Legend">
+        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted" aria-label="What the circles mean">
           <li className="flex items-center gap-2">
-            <span aria-hidden="true" className="size-3 rounded-full bg-primary" /> Done
+            <span aria-hidden="true" className="size-3 rounded-full bg-primary" /> Finished
           </li>
           <li className="flex items-center gap-2">
             <span aria-hidden="true" className="grid size-3 place-items-center rounded-full border-2 border-primary">
               <span className="size-1 rounded-full bg-primary" />
             </span>{' '}
-            In progress
+            You’re here
           </li>
           <li className="flex items-center gap-2">
-            <span aria-hidden="true" className="size-3 rounded-full border border-border-strong" /> Upcoming
+            <span aria-hidden="true" className="size-3 rounded-full border border-control" /> Coming up
           </li>
         </ul>
       </PageHeader>

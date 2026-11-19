@@ -2,16 +2,16 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/primitives';
 
 const LINKS = [
-  { href: '/', label: 'Home', note: 'Current sprint and next session' },
-  { href: '/roadmap', label: 'Road map', note: 'All ten sprints' },
-  { href: '/sessions', label: 'Sessions', note: 'Every session, newest first' },
-  { href: '/glossary', label: 'Glossary', note: 'Words explained simply' },
+  { href: '/', label: 'Home', note: 'Your next lesson and homework' },
+  { href: '/roadmap', label: 'My path', note: 'All ten sprints' },
+  { href: '/sessions', label: 'Lessons', note: 'Every lesson, newest first' },
+  { href: '/glossary', label: 'Word list', note: 'Coding words explained' },
 ];
 
 export function NotFoundContent() {
   return (
     <Container className="max-w-[880px] py-16 sm:py-24">
-      <p className="font-mono text-xs uppercase tracking-[0.12em] text-muted">Error 404</p>
+      <p className="text-sm font-medium text-muted">Page not found</p>
       <h1 className="mt-3 font-serif text-[2.4rem] font-medium leading-[1.08] sm:text-5xl">This page doesn’t exist.</h1>
       <div className="mt-6 max-w-[56ch] rounded-md border border-border bg-surface-2 px-4 py-3 font-mono text-sm leading-relaxed">
         <span className="text-muted">&gt;&gt;&gt;</span> page = site[&quot;this address&quot;]
