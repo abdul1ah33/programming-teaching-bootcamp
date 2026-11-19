@@ -1,0 +1,21 @@
+term: 'Struct'
+firstSprint: data-structures-and-algorithms-in-c
+explanation: 'A struct groups related values into one new type, like a form with several boxes to fill in. A student might have a name and an age; a struct keeps them together.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    struct Student {
+        char name[20];
+        int age;
+    };
+
+    int main(void) {
+        struct Student s = {"Sam", 14};
+        printf("%s is %d\n", s.name, s.age);
+        return 0;
+    }
+relatedTerms:
+  - class
+  - linked-list

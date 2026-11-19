@@ -1,0 +1,22 @@
+term: 'Memory leak'
+firstSprint: memory-management
+explanation: 'A memory leak happens when a program asks for memory and never gives it back. It''s like borrowing library books and never returning them: sooner or later the shelves are empty. In C it usually means a missing free.'
+codeExample:
+  language: c
+  code: |
+    #include <stdlib.h>
+
+    int main(void) {
+        for (int i = 0; i < 3; i++) {
+            int *data = malloc(100 * sizeof(int));
+            if (data == NULL) {
+                return 1;
+            }
+            data[0] = i;
+            free(data);   // delete this line and every pass leaks memory
+        }
+        return 0;
+    }
+relatedTerms:
+  - malloc-and-free
+  - heap

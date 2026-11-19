@@ -1,0 +1,19 @@
+term: 'Class'
+firstSprint: building-useful-python-programs
+explanation: 'A class is a blueprint for making objects. It describes the data each object holds (attributes) and what it can do (methods). One cookie cutter, many cookies.'
+codeExample:
+  language: python
+  code: |
+    class Book:
+        def __init__(self, title, pages):
+            self.title = title
+            self.pages = pages
+
+        def describe(self):
+            return self.title + " has " + str(self.pages) + " pages"
+
+    book = Book("Holes", 233)
+    print(book.describe())
+relatedTerms:
+  - object
+  - struct

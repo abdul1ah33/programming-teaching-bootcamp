@@ -1,0 +1,24 @@
+term: 'Pointer'
+firstSprint: arrays-strings-and-pointers
+explanation: 'A pointer is a variable that stores an address: it points to where another value lives. Putting * in front of a pointer (dereferencing) reaches the value it points to. Pointers let a function change variables that belong to someone else.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    void swap(int *a, int *b) {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+
+    int main(void) {
+        int x = 1, y = 2;
+        swap(&x, &y);
+        printf("x=%d y=%d\n", x, y);   // x=2 y=1
+        return 0;
+    }
+relatedTerms:
+  - address
+  - malloc-and-free
+  - linked-list

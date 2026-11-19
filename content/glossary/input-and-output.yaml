@@ -1,0 +1,13 @@
+term: 'Input and output'
+firstSprint: computational-thinking
+explanation: 'Input is the information that goes into a program; output is what comes out. A calculator''s inputs are the numbers you type and its output is the answer on the screen. Most programs follow the same pattern: input, process, output.'
+codeExample:
+  language: python
+  code: |
+    name = input("What's your name? ")   # input
+    greeting = "Hello, " + name + "!"    # process
+    print(greeting)                      # output
+relatedTerms:
+  - algorithm
+  - variable
+  - string

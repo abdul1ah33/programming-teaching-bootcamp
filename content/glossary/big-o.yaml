@@ -1,0 +1,36 @@
+term: 'Big-O'
+firstSprint: data-structures-and-algorithms-in-c
+explanation: 'Big-O describes how the work a program does grows as its input gets bigger. O(n) means the work grows in step with the size; O(log n) grows very slowly; O(n²) grows fast. Finding a name in a phone book by halving the pages beats reading every page.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    // O(n): may look at every item
+    int linear_search(const int a[], int n, int target) {
+        for (int i = 0; i < n; i++) {
+            if (a[i] == target) return i;
+        }
+        return -1;
+    }
+
+    // O(log n): halves the search each step (the array must be sorted)
+    int binary_search(const int a[], int n, int target) {
+        int low = 0, high = n - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (a[mid] == target) return mid;
+            if (a[mid] < target) low = mid + 1;
+            else high = mid - 1;
+        }
+        return -1;
+    }
+
+    int main(void) {
+        int sorted[] = {2, 5, 8, 12, 16, 23, 38};
+        printf("%d %d\n", linear_search(sorted, 7, 23), binary_search(sorted, 7, 23));
+        return 0;
+    }
+relatedTerms:
+  - array
+  - linked-list

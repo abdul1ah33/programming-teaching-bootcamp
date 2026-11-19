@@ -8,7 +8,8 @@ import { FileRow } from '@/components/ui/file-row';
 import { Card, CardLink, Container, EmptyState, SectionHeading } from '@/components/ui/primitives';
 import { ProgressBar } from '@/components/ui/progress-bar';
 import { StatusPill } from '@/components/ui/status-pill';
-import { getProjects, getSessions, getSprint, getSprints } from '@/lib/content';
+import { getGlossary, getProjects, getSessions, getSprint, getSprints } from '@/lib/content';
+import { linkTerms, termsForSprint } from '@/lib/derive/glossary';
 import { neighbours } from '@/lib/derive/current-sprint';
 import { formatDate } from '@/lib/derive/dates';
 import { sprintProgress } from '@/lib/derive/progress';
@@ -30,13 +31,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SprintPage({ params }: Props) {
   const { slug } = await params;
-  const [sprint, sprints, sessions, projects] = await Promise.all([getSprint(slug), getSprints(), getSessions(), getProjects()]);
+  const [sprint, sprints, sessions, projects, glossary] = await Promise.all([
+    getSprint(slug),
+    getSprints(),
+    getSessions(),
+    getProjects(),
+    getGlossary(),
+  ]);
   if (!sprint) notFound();
 
   const progress = sprintProgress(sprint);
   const related = sessionsForSprint(sessions, sprint.slug);
   const sprintProjects = projects.filter((p) => p.sprint === sprint.slug);
   const { previous, next } = neighbours(sprints, sprint.slug);
+  const linkedTopics = linkTerms(sprint.topics, glossary, sprint.slug);
+  const sprintTerms = termsForSprint(glossary, sprint.slug);
 
   return (
     <Container>
@@ -83,10 +92,24 @@ export default async function SprintPage({ params }: Props) {
               What you’ll learn
             </SectionHeading>
             <ul className="grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
-              {sprint.topics.map((t) => (
+              {sprint.topics.map((t, i) => (
                 <li key={t} className="flex gap-2.5 text-[0.95rem] leading-6">
                   <span aria-hidden="true" className="mt-[0.6rem] h-px w-3 shrink-0 bg-primary" />
-                  <span>{t}</span>
+                  <span>
+                    {(linkedTopics[i] ?? [{ text: t }]).map((seg, j) =>
+                      seg.slug ? (
+                        <Link
+                          key={j}
+                          href={`/glossary/${seg.slug}`}
+                          className="underline decoration-primary/40 decoration-dotted underline-offset-[3px] hover:text-primary-hover hover:decoration-solid"
+                        >
+                          {seg.text}
+                        </Link>
+                      ) : (
+                        <span key={j}>{seg.text}</span>
+                      ),
+                    )}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -155,6 +178,33 @@ export default async function SprintPage({ params }: Props) {
               Your teacher ticks these when you can do them on your own. The sprint is complete when they’re all ticked.
             </p>
           </Card>
+
+          {sprintTerms.length > 0 && (
+            <Card as="section" aria-labelledby="words" className="p-5">
+              <SectionHeading
+                id="words"
+                aside={
+                  <Link href="/glossary" className="hover:text-text">
+                    Glossary →
+                  </Link>
+                }
+              >
+                Words in this sprint
+              </SectionHeading>
+              <ul className="flex flex-wrap gap-2">
+                {sprintTerms.map((t) => (
+                  <li key={t.slug}>
+                    <Link
+                      href={`/glossary/${t.slug}`}
+                      className="inline-flex h-8 items-center rounded-md border border-border bg-surface px-2.5 text-sm hover:border-primary hover:bg-primary-tint"
+                    >
+                      {t.term}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          )}
 
           <Card as="section" aria-labelledby="files" className="p-5">
             <SectionHeading id="files" aside={sprint.files.length || undefined}>

@@ -1,0 +1,13 @@
+term: 'Parameter'
+firstSprint: collections-and-functions
+explanation: 'A parameter is a name in a function''s definition that receives a value when the function is called. The value you pass in is called the argument. Parameters let one function work with different inputs.'
+codeExample:
+  language: python
+  code: |
+    def area(width, height):   # width and height are parameters
+        return width * height
+
+    print(area(3, 4))          # 3 and 4 are the arguments
+relatedTerms:
+  - function
+  - return-value

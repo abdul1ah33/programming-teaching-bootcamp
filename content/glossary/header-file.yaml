@@ -1,0 +1,15 @@
+term: 'Header file'
+firstSprint: c-fundamentals
+explanation: 'A header file tells your program about functions that live somewhere else, so you can use them. #include <stdio.h> brings in printf and scanf. It''s like the contents page of a library.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>   // printf
+    #include <math.h>    // sqrt
+
+    int main(void) {
+        printf("%.1f\n", sqrt(16.0));
+        return 0;
+    }
+relatedTerms:
+  - compiler

@@ -1,0 +1,13 @@
+term: 'String'
+firstSprint: python-foundations
+explanation: 'A string is a piece of text, written between quotes. It''s a row of characters, like beads on a thread, so you can count them and pick out single ones by position.'
+codeExample:
+  language: python
+  code: |
+    word = "Python"
+    print(len(word))      # 6
+    print(word[0])        # P
+    print(word.upper())   # PYTHON
+relatedTerms:
+  - data-type
+  - type-conversion

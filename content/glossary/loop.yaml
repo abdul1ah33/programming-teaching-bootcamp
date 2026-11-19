@@ -1,0 +1,17 @@
+term: 'Loop'
+firstSprint: decisions-and-loops
+explanation: 'A loop repeats a block of code. A for loop runs once for each item or number; a while loop keeps going as long as its condition is true. It saves you writing the same line ten times.'
+codeExample:
+  language: python
+  code: |
+    for n in range(1, 4):
+        print(n, "x 7 =", n * 7)
+
+    count = 3
+    while count > 0:
+        print(count)
+        count = count - 1
+relatedTerms:
+  - condition
+  - infinite-loop
+  - list

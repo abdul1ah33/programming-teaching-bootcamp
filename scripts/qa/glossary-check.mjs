@@ -1,0 +1,24 @@
+// Checks the glossary filter and the code ligature setting. BASE env var sets the server.
+import { chromium } from '@playwright/test';
+const base = process.env.BASE ?? 'http://localhost:3100';
+const browser = await chromium.launch();
+const page = await browser.newPage();
+const results = [];
+const check = (n, ok) => results.push(`${ok ? 'PASS' : 'FAIL'}  ${n}`);
+const count = () => page.locator('main a[href^="/glossary/"]').count();
+await page.goto(base + '/glossary', { waitUntil: 'load' });
+const all = await count();
+check(`all terms listed (${all})`, all === 37);
+await page.getByLabel('Find a word').fill('point');
+check('typing "point" filters instantly', (await count()) < all && (await count()) > 0);
+await page.getByLabel('Find a word').fill('zzzz');
+check('no match shows the empty state', await page.getByText('No words match').isVisible());
+await page.getByRole('button', { name: 'Show every word' }).click();
+await page.getByLabel('Sprint').selectOption({ label: 'Sprint 6 · Arrays, Strings, and Pointers' });
+check('sprint filter shows that sprint only (3)', (await count()) === 3);
+await page.goto(base + '/glossary/pointer', { waitUntil: 'load' });
+const lig = await page.locator('.shiki').first().evaluate((el) => getComputedStyle(el).fontVariantLigatures);
+check(`code ligatures off (${lig})`, lig === 'none');
+await browser.close();
+console.log(results.join('\n'));
+if (results.some((r) => r.startsWith('FAIL'))) process.exit(1);

@@ -1,0 +1,13 @@
+term: 'Boolean'
+firstSprint: python-foundations
+explanation: 'A boolean is a value that is either True or False, nothing else. Comparisons like 5 > 3 give a boolean, and conditions use booleans to decide what happens next.'
+codeExample:
+  language: python
+  code: |
+    is_raining = False
+    age = 14
+    print(age >= 13)                       # True
+    print(age >= 13 and not is_raining)    # True
+relatedTerms:
+  - condition
+  - data-type

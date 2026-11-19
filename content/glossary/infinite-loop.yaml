@@ -1,0 +1,13 @@
+term: 'Infinite loop'
+firstSprint: decisions-and-loops
+explanation: 'An infinite loop never stops because its condition never becomes false, like a song stuck on repeat. Usually it means you forgot to change the variable the loop is checking.'
+codeExample:
+  language: python
+  code: |
+    count = 0
+    while count < 3:       # without the last line, this would never end
+        print(count)
+        count = count + 1  # the fix: change what the loop checks
+relatedTerms:
+  - loop
+  - condition

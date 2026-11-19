@@ -1,0 +1,26 @@
+term: 'Stack (data structure)'
+firstSprint: data-structures-and-algorithms-in-c
+explanation: 'A stack is a collection where the last item added is the first one taken out, like a pile of plates. Its two main operations are push (put on top) and pop (take from the top).'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    int stack[10];
+    int top = 0;
+
+    void push(int value) { stack[top++] = value; }
+    int pop(void) { return stack[--top]; }
+
+    int main(void) {
+        push(1);
+        push(2);
+        push(3);
+        printf("%d\n", pop());   // 3
+        printf("%d\n", pop());   // 2
+        return 0;
+    }
+relatedTerms:
+  - queue
+  - stack-memory
+  - array

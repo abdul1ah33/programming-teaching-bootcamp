@@ -1,0 +1,14 @@
+term: 'Exception'
+firstSprint: building-useful-python-programs
+explanation: 'An exception is an error that happens while a program runs, like dividing by zero or turning "abc" into a number. try and except let you catch it and do something sensible instead of crashing.'
+codeExample:
+  language: python
+  code: |
+    text = "abc"
+    try:
+        number = int(text)
+        print(number)
+    except ValueError:
+        print("That isn't a whole number.")
+relatedTerms:
+  - type-conversion

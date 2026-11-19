@@ -1,0 +1,12 @@
+term: 'Variable'
+firstSprint: python-foundations
+explanation: 'A variable is a name that stores a value so you can use it later. Think of a labelled box: the label is the name, and what''s inside can change. In Python you create one with =.'
+codeExample:
+  language: python
+  code: |
+    score = 0
+    score = score + 10
+    print(score)   # 10
+relatedTerms:
+  - data-type
+  - scope

@@ -1,0 +1,14 @@
+term: 'Type conversion'
+firstSprint: python-foundations
+explanation: 'Type conversion turns a value of one type into another, like turning the text "42" into the number 42. input() always gives you text, so you convert it before doing maths. int(), float() and str() do the converting.'
+codeExample:
+  language: python
+  code: |
+    text = "42"
+    number = int(text)
+    print(number + 8)            # 50
+    print("Total: " + str(50))   # Total: 50
+relatedTerms:
+  - data-type
+  - input-and-output
+  - exception

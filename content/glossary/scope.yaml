@@ -1,0 +1,16 @@
+term: 'Scope'
+firstSprint: collections-and-functions
+explanation: 'Scope is where in a program a variable can be used. A variable made inside a function is local: it only exists while that function runs, like a note on a whiteboard that''s wiped at the end of the lesson.'
+codeExample:
+  language: python
+  code: |
+    def double(n):
+        result = n * 2   # result only exists inside double()
+        return result
+
+    print(double(4))     # 8
+    # print(result) here would fail: result doesn't exist outside the function
+relatedTerms:
+  - variable
+  - function
+  - stack-memory

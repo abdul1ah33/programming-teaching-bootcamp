@@ -1,0 +1,15 @@
+term: 'List'
+firstSprint: collections-and-functions
+explanation: 'A list holds several values in order, inside square brackets. Each item has a position called an index, starting at 0. You can add, remove and change items.'
+codeExample:
+  language: python
+  code: |
+    scores = [12, 7, 19]
+    scores.append(5)
+    print(scores[0])     # 12
+    print(scores[-1])    # 5 (the last item)
+    print(max(scores))   # 19
+relatedTerms:
+  - dictionary
+  - loop
+  - array

@@ -1,0 +1,251 @@
+title: 'Python cheat sheet'
+language: python
+intro: 'The Python you''ll use in Sprints 1 to 4, in the order you learn it. Every example runs as it is: copy it into a file, run it, then change something and see what happens.'
+sections:
+  - heading: 'Printing and input'
+    sprint: python-foundations
+    items:
+      - label: 'Print a message'
+        code: |
+          print("Hello!")
+          print("Score:", 42)
+        note: 'print() shows text on the screen. Commas put a space between the parts.'
+      - label: 'Ask for input'
+        code: |
+          name = input("What's your name? ")
+          print("Hi,", name)
+        note: 'input() always gives you text (a string), even if someone types a number.'
+      - label: 'Format a message with an f-string'
+        code: |
+          name = "Sam"
+          age = 14
+          print(f"{name} is {age} years old")
+          print(f"Half of 7 is {7 / 2:.1f}")
+        note: 'Put f before the quotes and values in {curly brackets}. :.1f means one decimal place.'
+  - heading: 'Variables and types'
+    sprint: python-foundations
+    items:
+      - label: 'Make and change a variable'
+        code: |
+          lives = 3
+          lives = lives - 1
+          print(lives)   # 2
+        note: 'Use clear names in lower_case_with_underscores.'
+      - label: 'The four basic types'
+        code: |
+          whole = 14          # int
+          decimal = 1.75      # float
+          text = "hello"      # str
+          done = False        # bool
+          print(type(whole), type(decimal), type(text), type(done))
+        note: ''
+      - label: 'Convert between types'
+        code: |
+          age = int("14")        # text → whole number
+          price = float("2.5")   # text → decimal
+          label = str(99)        # number → text
+          print(age + 1, price * 2, label + "!")
+        note: 'Convert input() before doing maths with it: int(input("Age? ")).'
+  - heading: 'Maths and comparisons'
+    sprint: python-foundations
+    items:
+      - label: 'Arithmetic'
+        code: |
+          print(7 + 2, 7 - 2, 7 * 2)   # 9 5 14
+          print(7 / 2)                 # 3.5  (always a decimal)
+          print(7 // 2)                # 3    (whole-number division)
+          print(7 % 2)                 # 1    (remainder)
+          print(2 ** 3)                # 8    (power)
+        note: '% is handy for "is it even?": n % 2 == 0.'
+      - label: 'Comparisons give True or False'
+        code: |
+          print(5 > 3, 5 < 3)     # True False
+          print(5 == 5, 5 != 4)   # True True
+          print(4 >= 4)           # True
+        note: 'One = stores a value; two == compares.'
+  - heading: 'Decisions'
+    sprint: decisions-and-loops
+    items:
+      - label: 'if, elif, else'
+        code: |
+          score = 72
+          if score >= 80:
+              print("Great")
+          elif score >= 50:
+              print("Pass")
+          else:
+              print("Try again")
+        note: 'The colon and the indented block matter. Only the first true branch runs.'
+      - label: 'and, or, not'
+        code: |
+          age = 14
+          has_ticket = True
+          if age >= 12 and has_ticket:
+              print("You can go in")
+          if not has_ticket or age < 12:
+              print("Sorry")
+        note: ''
+  - heading: 'Loops'
+    sprint: decisions-and-loops
+    items:
+      - label: 'for with range()'
+        code: |
+          for i in range(5):        # 0, 1, 2, 3, 4
+              print(i)
+          for i in range(1, 11, 2): # 1, 3, 5, 7, 9
+              print(i)
+        note: 'range(start, stop, step) stops before the stop number.'
+      - label: 'while'
+        code: |
+          countdown = 3
+          while countdown > 0:
+              print(countdown)
+              countdown = countdown - 1
+          print("Go!")
+        note: 'Make sure something inside changes the condition, or the loop never ends.'
+      - label: 'break and continue'
+        code: |
+          for n in range(1, 10):
+              if n == 3:
+                  continue   # skip 3
+              if n == 6:
+                  break      # stop at 6
+              print(n)       # 1 2 4 5
+        note: ''
+  - heading: 'Lists'
+    sprint: collections-and-functions
+    items:
+      - label: 'Make a list and read items'
+        code: |
+          fruits = ["apple", "banana", "cherry"]
+          print(fruits[0])     # apple
+          print(fruits[-1])    # cherry
+          print(fruits[0:2])   # ['apple', 'banana']
+          print(len(fruits))   # 3
+        note: 'Indexes start at 0. A slice [a:b] stops before b.'
+      - label: 'Change a list'
+        code: |
+          nums = [3, 1, 2]
+          nums.append(4)     # add to the end
+          nums.remove(1)     # remove the value 1
+          nums[0] = 10       # change the first item
+          nums.sort()
+          print(nums)        # [2, 4, 10]
+        note: ''
+      - label: 'Loop through a list'
+        code: |
+          grades = [70, 85, 90]
+          total = 0
+          for g in grades:
+              total = total + g
+          print(total / len(grades))           # average
+          print(sum(grades), max(grades), min(grades))
+        note: ''
+  - heading: 'Dictionaries, tuples and sets'
+    sprint: collections-and-functions
+    items:
+      - label: 'Dictionary: keys and values'
+        code: |
+          scores = {"Sam": 12, "Mia": 15}
+          scores["Ali"] = 9         # add or change
+          print(scores["Mia"])      # 15
+          print("Sam" in scores)    # True
+          for name, points in scores.items():
+              print(name, points)
+        note: 'Looking up a key that isn''t there causes a KeyError. Check with "in" first.'
+      - label: 'Tuple and set'
+        code: |
+          point = (3, 4)          # tuple: fixed, can't change
+          colours = {"red", "blue", "red"}
+          print(point[0])         # 3
+          print(colours)          # each value once: {'red', 'blue'} (in any order)
+        note: ''
+  - heading: 'Functions'
+    sprint: collections-and-functions
+    items:
+      - label: 'Define and call'
+        code: |
+          def add(a, b):
+              return a + b
+
+          print(add(2, 3))   # 5
+        note: 'Define functions at the top of the file, then call them below.'
+      - label: 'A function that checks something'
+        code: |
+          def is_prime(n):
+              if n < 2:
+                  return False
+              for d in range(2, n):
+                  if n % d == 0:
+                      return False
+              return True
+
+          print(is_prime(7), is_prime(8))   # True False
+        note: 'return ends the function immediately.'
+      - label: 'Default parameter values'
+        code: |
+          def greet(name, greeting="Hello"):
+              return f"{greeting}, {name}!"
+
+          print(greet("Sam"))
+          print(greet("Mia", "Hi"))
+        note: ''
+  - heading: 'Files'
+    sprint: building-useful-python-programs
+    items:
+      - label: 'Write and read a text file'
+        code: |
+          with open("tasks.txt", "w") as f:
+              f.write("Feed the cat\n")
+              f.write("Homework\n")
+
+          with open("tasks.txt") as f:
+              for line in f:
+                  print(line.strip())
+        note: '"w" replaces the file, "a" adds to the end. with closes the file for you.'
+  - heading: 'Errors and exceptions'
+    sprint: building-useful-python-programs
+    items:
+      - label: 'Catch bad input'
+        code: |
+          text = "twelve"
+          try:
+              number = int(text)
+              print(number * 2)
+          except ValueError:
+              print("Please type digits, like 12.")
+        note: ''
+      - label: 'Read the error message'
+        code: |
+          try:
+              print(10 / 0)
+          except ZeroDivisionError as error:
+              print("Error:", error)   # division by zero
+        note: 'Read the last line of an error first: it says what went wrong. The line number says where.'
+  - heading: 'Classes and objects'
+    sprint: building-useful-python-programs
+    items:
+      - label: 'A class with attributes and a method'
+        code: |
+          class Expense:
+              def __init__(self, name, amount):
+                  self.name = name
+                  self.amount = amount
+
+              def label(self):
+                  return f"{self.name}: {self.amount:.2f}"
+
+          lunch = Expense("Lunch", 6.5)
+          print(lunch.label())   # Lunch: 6.50
+        note: '__init__ runs when you make a new object. self is the object itself.'
+  - heading: 'Modules'
+    sprint: building-useful-python-programs
+    items:
+      - label: 'Use the standard library'
+        code: |
+          import random
+          from math import sqrt
+
+          print(random.choice(["rock", "paper", "scissors"]))
+          print(sqrt(49))   # 7.0
+        note: 'Your own file helpers.py can be imported the same way: import helpers.'

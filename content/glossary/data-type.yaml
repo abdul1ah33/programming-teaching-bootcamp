@@ -1,0 +1,15 @@
+term: 'Data type'
+firstSprint: python-foundations
+explanation: 'Every value has a type that says what kind of thing it is: a whole number (int), a decimal (float), text (str) or True/False (bool). The type decides what you can do with it: you can add two numbers, but not a number and a word.'
+codeExample:
+  language: python
+  code: |
+    print(type(14))      # <class 'int'>
+    print(type(1.75))    # <class 'float'>
+    print(type("Sam"))   # <class 'str'>
+    print(type(True))    # <class 'bool'>
+relatedTerms:
+  - variable
+  - string
+  - boolean
+  - type-conversion

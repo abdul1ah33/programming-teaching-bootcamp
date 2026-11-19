@@ -1,0 +1,18 @@
+term: 'Format specifier'
+firstSprint: c-fundamentals
+explanation: 'A format specifier is a placeholder in printf or scanf that says what type of value goes there: %d for whole numbers, %f for decimals, %c for one character and %s for text. It must match the value, or you get nonsense.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    int main(void) {
+        int age = 14;
+        double height = 1.68;
+        char grade = 'A';
+        printf("Age %d, height %.2f m, grade %c\n", age, height, grade);
+        return 0;
+    }
+relatedTerms:
+  - data-type
+  - compiler

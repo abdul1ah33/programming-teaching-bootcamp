@@ -1,0 +1,26 @@
+term: 'Heap'
+firstSprint: memory-management
+explanation: 'The heap is a big pool of memory you ask for while the program runs, when you don''t know in advance how much you''ll need. Unlike the stack, nothing is cleared automatically: you borrow it, and you give it back.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main(void) {
+        int count = 5;
+        int *numbers = malloc(count * sizeof(int));   // memory from the heap
+        if (numbers == NULL) {
+            return 1;
+        }
+        for (int i = 0; i < count; i++) {
+            numbers[i] = i * i;
+        }
+        printf("%d\n", numbers[4]);   // 16
+        free(numbers);
+        return 0;
+    }
+relatedTerms:
+  - stack-memory
+  - malloc-and-free
+  - memory-leak

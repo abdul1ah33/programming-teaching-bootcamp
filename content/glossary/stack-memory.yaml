@@ -1,0 +1,21 @@
+term: 'Stack (memory)'
+firstSprint: memory-management
+explanation: 'The stack is the part of memory where a function''s local variables live. Each call gets a fresh area that''s cleared away automatically when the function returns, like a pile of trays: last on, first off.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    int square(int n) {
+        int result = n * n;   // lives on the stack while square() runs
+        return result;
+    }
+
+    int main(void) {
+        printf("%d\n", square(5));
+        return 0;
+    }
+relatedTerms:
+  - heap
+  - scope
+  - stack-data-structure

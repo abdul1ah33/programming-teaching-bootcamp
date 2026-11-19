@@ -1,0 +1,16 @@
+term: 'Pseudocode'
+firstSprint: computational-thinking
+explanation: 'Pseudocode is a plan for a program written in plain words instead of a real programming language. It lets you think about the steps without worrying about exact syntax. Later, each line becomes real code.'
+codeExample:
+  language: python
+  code: |
+    # The pseudocode, written as comments:
+    #   get two numbers
+    #   add them together
+    #   show the result
+    first = 8
+    second = 5
+    print(first + second)
+relatedTerms:
+  - algorithm
+  - flowchart

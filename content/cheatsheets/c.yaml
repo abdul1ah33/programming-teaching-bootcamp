@@ -1,0 +1,293 @@
+title: 'C cheat sheet'
+language: c
+intro: 'The C you''ll use in Sprints 5 to 8, in the order you learn it. Short examples are the inside of main(); longer ones are whole programs. Compile with gcc -Wall -Wextra file.c -o file and fix every warning.'
+sections:
+  - heading: 'A complete program'
+    sprint: c-fundamentals
+    items:
+      - label: 'The smallest C program'
+        code: |
+          #include <stdio.h>
+
+          int main(void) {
+              printf("Hello!\n");
+              return 0;
+          }
+        note: 'Compile: gcc hello.c -o hello. Run: ./hello (or hello.exe on Windows). \n starts a new line.'
+  - heading: 'Variables and printf'
+    sprint: c-fundamentals
+    items:
+      - label: 'Basic types and format specifiers'
+        code: |
+          int lives = 3;
+          double price = 2.5;
+          char grade = 'B';
+          printf("%d lives, %.2f each, grade %c\n", lives, price, grade);
+        note: '%d int · %f double · %c char · %s string. Every variable needs a type.'
+      - label: 'Whole-number division'
+        code: |
+          int a = 7, b = 2;
+          printf("%d\n", a / b);             // 3
+          printf("%d\n", a % b);             // 1
+          printf("%.1f\n", (double)a / b);   // 3.5
+        note: 'Two ints divide to an int. Convert one to double to keep the decimal part.'
+  - heading: 'Reading input'
+    sprint: c-fundamentals
+    items:
+      - label: 'scanf a number'
+        code: |
+          int age;
+          printf("Age? ");
+          if (scanf("%d", &age) == 1) {
+              printf("Next year you'll be %d\n", age + 1);
+          }
+        note: 'scanf needs the address of the variable (&age). It returns how many values it read.'
+  - heading: 'Decisions and loops'
+    sprint: c-fundamentals
+    items:
+      - label: 'if / else'
+        code: |
+          int n = 7;
+          if (n % 2 == 0) {
+              printf("even\n");
+          } else {
+              printf("odd\n");
+          }
+        note: 'Same ideas as Python, but with brackets ( ) around the condition and braces { } around the block.'
+      - label: 'for and while'
+        code: |
+          for (int i = 1; i <= 3; i++) {
+              printf("%d x 7 = %d\n", i, i * 7);
+          }
+          int count = 3;
+          while (count > 0) {
+              printf("%d\n", count);
+              count--;
+          }
+        note: 'i++ adds one; count-- takes one away.'
+  - heading: 'Functions'
+    sprint: c-fundamentals
+    items:
+      - label: 'Declare, define, call'
+        code: |
+          #include <stdio.h>
+
+          double to_fahrenheit(double celsius);   // declaration (prototype)
+
+          int main(void) {
+              printf("%.1f\n", to_fahrenheit(20.0));   // 68.0
+              return 0;
+          }
+
+          double to_fahrenheit(double celsius) {     // definition
+              return celsius * 9 / 5 + 32;
+          }
+        note: 'The return type comes first. void means "returns nothing" or "takes nothing".'
+  - heading: 'Arrays'
+    sprint: arrays-strings-and-pointers
+    items:
+      - label: 'Make, fill and loop'
+        code: |
+          int nums[5] = {4, 8, 15, 16, 23};
+          int max = nums[0];
+          for (int i = 1; i < 5; i++) {
+              if (nums[i] > max) {
+                  max = nums[i];
+              }
+          }
+          printf("max = %d\n", max);
+        note: 'C does not check the index: nums[5] is outside the array and is a bug.'
+      - label: 'Length of an array'
+        code: |
+          int data[] = {1, 2, 3, 4};
+          int length = (int)(sizeof(data) / sizeof(data[0]));
+          printf("%d items\n", length);
+        note: 'This only works where the array was declared, not inside a function it was passed to.'
+  - heading: 'Strings'
+    sprint: arrays-strings-and-pointers
+    items:
+      - label: 'Strings are char arrays'
+        code: |
+          char name[20] = "Sam";
+          printf("%s has %d letters\n", name, (int)strlen(name));
+          printf("first letter: %c\n", name[0]);
+        note: 'A string ends with a hidden ''\0'' character, so "Sam" needs 4 chars of space. strlen comes from <string.h>.'
+      - label: 'Copy and compare'
+        code: |
+          char a[20];
+          strcpy(a, "hello");
+          if (strcmp(a, "hello") == 0) {
+              printf("same\n");
+          }
+        note: 'Use strcmp, not ==, to compare strings. Make sure the destination is big enough.'
+  - heading: 'Pointers'
+    sprint: arrays-strings-and-pointers
+    items:
+      - label: 'Address and value'
+        code: |
+          int x = 5;
+          int *p = &x;      // p holds the address of x
+          *p = 9;           // change x through p
+          printf("x = %d\n", x);   // 9
+        note: '& gives an address. * on a pointer reaches the value it points to.'
+      - label: 'Change a variable inside a function'
+        code: |
+          #include <stdio.h>
+
+          void add_bonus(int *score) {
+              *score = *score + 10;
+          }
+
+          int main(void) {
+              int score = 5;
+              add_bonus(&score);
+              printf("%d\n", score);   // 15
+              return 0;
+          }
+        note: 'Pass the address when a function must change your variable.'
+  - heading: 'Dynamic memory'
+    sprint: memory-management
+    items:
+      - label: 'malloc, check, use, free'
+        code: |
+          int n = 4;
+          int *arr = malloc(n * sizeof(int));
+          if (arr == NULL) {
+              return 1;
+          }
+          for (int i = 0; i < n; i++) {
+              arr[i] = i * 10;
+          }
+          printf("%d\n", arr[3]);   // 30
+          free(arr);
+        note: 'Always check for NULL. Every malloc needs one free. From <stdlib.h>.'
+      - label: 'Grow an array with realloc'
+        code: |
+          int *items = calloc(2, sizeof(int));   // 2 ints, set to 0
+          if (items == NULL) {
+              return 1;
+          }
+          int *bigger = realloc(items, 4 * sizeof(int));
+          if (bigger == NULL) {
+              free(items);
+              return 1;
+          }
+          items = bigger;
+          items[3] = 42;
+          printf("%d %d\n", items[0], items[3]);   // 0 42
+          free(items);
+        note: 'Keep the old pointer until realloc succeeds, so you can still free it.'
+  - heading: 'Structs'
+    sprint: data-structures-and-algorithms-in-c
+    items:
+      - label: 'Define and use a struct'
+        code: |
+          #include <stdio.h>
+
+          struct Book {
+              char title[40];
+              int pages;
+          };
+
+          int main(void) {
+              struct Book b = {"Holes", 233};
+              struct Book *p = &b;
+              p->pages = 240;              // -> reaches a field through a pointer
+              printf("%s: %d pages\n", b.title, b.pages);
+              return 0;
+          }
+        note: 'Use . on a struct and -> on a pointer to a struct.'
+  - heading: 'Linked lists'
+    sprint: data-structures-and-algorithms-in-c
+    items:
+      - label: 'Add to the front and print'
+        code: |
+          #include <stdio.h>
+          #include <stdlib.h>
+
+          struct Node {
+              int value;
+              struct Node *next;
+          };
+
+          struct Node *push_front(struct Node *head, int value) {
+              struct Node *node = malloc(sizeof(struct Node));
+              if (node == NULL) {
+                  return head;
+              }
+              node->value = value;
+              node->next = head;
+              return node;
+          }
+
+          int main(void) {
+              struct Node *head = NULL;
+              for (int i = 1; i <= 3; i++) {
+                  head = push_front(head, i);
+              }
+              for (struct Node *n = head; n != NULL; n = n->next) {
+                  printf("%d ", n->value);   // 3 2 1
+              }
+              printf("\n");
+              while (head != NULL) {         // free every node
+                  struct Node *next = head->next;
+                  free(head);
+                  head = next;
+              }
+              return 0;
+          }
+        note: 'Save next before freeing a node, or you lose the rest of the list.'
+  - heading: 'Stacks and queues with an array'
+    sprint: data-structures-and-algorithms-in-c
+    items:
+      - label: 'Stack: push and pop'
+        code: |
+          int stack[10];
+          int top = 0;
+          stack[top++] = 1;   // push 1
+          stack[top++] = 2;   // push 2
+          printf("%d\n", stack[--top]);   // pop → 2
+          printf("%d items left\n", top);
+        note: 'Check top < 10 before pushing and top > 0 before popping.'
+      - label: 'Queue: add at the back, take from the front'
+        code: |
+          int queue[10];
+          int front = 0, back = 0;
+          queue[back++] = 1;
+          queue[back++] = 2;
+          printf("%d\n", queue[front++]);   // 1 (first in, first out)
+          printf("%d waiting\n", back - front);
+        note: ''
+  - heading: 'Sorting and searching'
+    sprint: data-structures-and-algorithms-in-c
+    items:
+      - label: 'Bubble sort'
+        code: |
+          int a[] = {5, 1, 4, 2};
+          int n = 4;
+          for (int i = 0; i < n - 1; i++) {
+              for (int j = 0; j < n - 1 - i; j++) {
+                  if (a[j] > a[j + 1]) {
+                      int t = a[j];
+                      a[j] = a[j + 1];
+                      a[j + 1] = t;
+                  }
+              }
+          }
+          for (int i = 0; i < n; i++) {
+              printf("%d ", a[i]);   // 1 2 4 5
+          }
+          printf("\n");
+        note: 'Two loops inside each other: O(n²). Fine for small lists.'
+      - label: 'Binary search (sorted array)'
+        code: |
+          int a[] = {2, 5, 8, 12, 16};
+          int target = 12, low = 0, high = 4, found = -1;
+          while (low <= high) {
+              int mid = (low + high) / 2;
+              if (a[mid] == target) { found = mid; break; }
+              if (a[mid] < target) low = mid + 1;
+              else high = mid - 1;
+          }
+          printf("found at index %d\n", found);   // 3
+        note: 'Halves the search each step: O(log n). The array must be sorted first.'

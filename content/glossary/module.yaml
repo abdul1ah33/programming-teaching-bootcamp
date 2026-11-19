@@ -1,0 +1,13 @@
+term: 'Module'
+firstSprint: building-useful-python-programs
+explanation: 'A module is a file of Python code you can bring into your program with import. Python comes with many useful ones, like random and math, so you don''t have to write everything yourself.'
+codeExample:
+  language: python
+  code: |
+    import math
+    import random
+
+    print(math.sqrt(81))          # 9.0
+    print(random.randint(1, 6))   # a dice roll
+relatedTerms:
+  - function

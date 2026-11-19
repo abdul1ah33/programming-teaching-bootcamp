@@ -1,0 +1,16 @@
+term: 'Compiler'
+firstSprint: c-fundamentals
+explanation: 'A compiler translates the C code you write into machine code the computer can run. Python runs your code line by line; C is translated all at once first. If the compiler finds a mistake, it stops and tells you where.'
+codeExample:
+  language: c
+  code: |
+    // Save as hello.c, then run:  gcc hello.c -o hello  and then  ./hello
+    #include <stdio.h>
+
+    int main(void) {
+        printf("Hello from C!\n");
+        return 0;
+    }
+relatedTerms:
+  - header-file
+  - format-specifier

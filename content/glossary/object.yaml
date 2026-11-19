@@ -1,0 +1,19 @@
+term: 'Object'
+firstSprint: building-useful-python-programs
+explanation: 'An object is one thing made from a class, with its own values. Two Dog objects share the same blueprint but can have different names. You use a dot to reach an object''s data and methods.'
+codeExample:
+  language: python
+  code: |
+    class Dog:
+        def __init__(self, name):
+            self.name = name
+
+        def speak(self):
+            return self.name + " says woof"
+
+    rex = Dog("Rex")
+    luna = Dog("Luna")
+    print(rex.speak())
+    print(luna.name)
+relatedTerms:
+  - class

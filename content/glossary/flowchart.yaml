@@ -1,0 +1,17 @@
+term: 'Flowchart'
+firstSprint: computational-thinking
+explanation: 'A flowchart is a drawing of an algorithm: boxes for steps, diamonds for questions and arrows for the order. It works like a map of the program. Following the arrows with your finger is a good way to check the plan.'
+codeExample:
+  language: python
+  code: |
+    number = -3
+    # The diamond in the flowchart asks: "Is the number above zero?"
+    if number > 0:
+        print("positive")
+    elif number < 0:
+        print("negative")
+    else:
+        print("zero")
+relatedTerms:
+  - algorithm
+  - condition

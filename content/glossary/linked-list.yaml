@@ -1,0 +1,28 @@
+term: 'Linked list'
+firstSprint: data-structures-and-algorithms-in-c
+explanation: 'A linked list is a chain of nodes: each node holds a value and a pointer to the next node, like a treasure hunt where each clue says where the next one is. Adding in the middle is easy; jumping to item 50 is slow.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    struct Node {
+        int value;
+        struct Node *next;
+    };
+
+    int main(void) {
+        struct Node third = {3, NULL};
+        struct Node second = {2, &third};
+        struct Node first = {1, &second};
+
+        for (struct Node *n = &first; n != NULL; n = n->next) {
+            printf("%d ", n->value);
+        }
+        printf("\n");
+        return 0;
+    }
+relatedTerms:
+  - struct
+  - pointer
+  - array

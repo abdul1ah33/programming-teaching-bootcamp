@@ -167,14 +167,14 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 6 — Glossary & cheat sheets
 
-- [ ] Seed ~35 glossary terms (Sprints 0–8, in order of appearance), each with a friendly explanation, analogy where useful, correct code example, related terms
-- [ ] Seed Python cheat sheet (Sprints 1–4) and C cheat sheet (Sprints 5–8), sections in learning order
-- [ ] `/glossary`: A–Z list, instant client-side text filter + sprint filter, letter jump links
-- [ ] `/glossary/[slug]`: explanation, highlighted code, related terms, sprint link
-- [ ] Sprint pages list terms introduced there; terms mentioned in sprint topics auto-link to glossary entries
-- [ ] `/cheatsheets` index (if linked from nav), `/cheatsheets/python`, `/cheatsheets/c`: compact, grouped by sprint, copy button on each snippet
-- [ ] Print stylesheet for cheat sheets: light, no nav, compact, few A4 pages, no broken snippets across pages
-- [ ] `scripts/check-snippets` + `npm run check-snippets`: extract every Python snippet (run with `python`) and every C snippet (wrap if needed, compile with `gcc -std=c11 -Wall -Wextra -Werror`, run); report failures
+- [x] Seed ~35 glossary terms (Sprints 0–8, in order of appearance), each with a friendly explanation, analogy where useful, correct code example, related terms
+- [x] Seed Python cheat sheet (Sprints 1–4) and C cheat sheet (Sprints 5–8), sections in learning order
+- [x] `/glossary`: A–Z list, instant client-side text filter + sprint filter, letter jump links
+- [x] `/glossary/[slug]`: explanation, highlighted code, related terms, sprint link
+- [x] Sprint pages list terms introduced there; terms mentioned in sprint topics auto-link to glossary entries
+- [x] `/cheatsheets` index (if linked from nav), `/cheatsheets/python`, `/cheatsheets/c`: compact, grouped by sprint, copy button on each snippet
+- [x] Print stylesheet for cheat sheets: light, no nav, compact, few A4 pages, no broken snippets across pages
+- [x] `scripts/check-snippets` + `npm run check-snippets`: extract every Python snippet (run with `python`) and every C snippet (wrap if needed, compile with `gcc -std=c11 -Wall -Wextra -Werror`, run); report failures
 
 **Acceptance gate (Phase 6)**
 - `npm run verify` passes.

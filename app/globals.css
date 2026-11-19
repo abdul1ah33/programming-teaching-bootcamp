@@ -259,3 +259,85 @@ li:has(.badge-new) .badge-medallion {
       0 0 0 0 var(--primary);
   }
 }
+
+/* ------------------------------------------------------------------
+   Print: A4, always light colours, no site chrome.
+   ------------------------------------------------------------------ */
+@page {
+  size: A4;
+  margin: 12mm 12mm 14mm;
+}
+
+@media print {
+  :root,
+  .dark {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f5f6f2;
+    --text: #16181d;
+    --muted: #4a5049;
+    --border: #dcdfd8;
+    --border-strong: #c4c8c0;
+    --primary: #1f7a4d;
+    --primary-hover: #17633e;
+    --primary-tint: #e8f3ec;
+    --on-primary: #ffffff;
+    --warn: #8a5a00;
+    --warn-tint: #fbf1dc;
+    --danger: #a33a2c;
+    --danger-tint: #f8e7e4;
+    --chart: #1f7a4d;
+    color-scheme: light;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+    font-size: 10pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .dark .shiki span {
+    color: var(--shiki-light);
+    font-style: var(--shiki-light-font-style);
+  }
+  a {
+    text-decoration: none;
+  }
+  main {
+    padding: 0 !important;
+  }
+  /* Code never scrolls on paper: wrap long lines instead. */
+  .shiki,
+  .shiki code {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .code-block {
+    break-inside: avoid;
+  }
+
+  /* Cheat sheets: dense two-column layout. */
+  .cheatsheet {
+    max-width: none;
+    padding: 0;
+  }
+  .cheatsheet .code-block > div {
+    padding: 4px 6px;
+    font-size: 7.5pt;
+    line-height: 1.4;
+  }
+  .cheatsheet h2 {
+    break-after: avoid;
+  }
+}
+
+/* No programming ligatures: a beginner must see the real characters (!= not ≠, -> not →). */
+code,
+pre,
+kbd,
+samp,
+.font-mono,
+.shiki {
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
+}

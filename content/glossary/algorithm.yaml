@@ -1,0 +1,17 @@
+term: 'Algorithm'
+firstSprint: computational-thinking
+explanation: 'An algorithm is a list of exact steps that solves a problem. A recipe is an algorithm for a cake: follow the same steps and you get the same cake. Computers need algorithms with no guesswork in them.'
+codeExample:
+  language: python
+  code: |
+    # An algorithm to find the bigger of two numbers
+    a = 7
+    b = 12
+    if a > b:
+        print(a)
+    else:
+        print(b)
+relatedTerms:
+  - pseudocode
+  - flowchart
+  - input-and-output

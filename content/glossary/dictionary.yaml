@@ -1,0 +1,13 @@
+term: 'Dictionary'
+firstSprint: collections-and-functions
+explanation: 'A dictionary stores pairs: a key and its value, like a word and its meaning in a real dictionary. You look things up by key instead of by position.'
+codeExample:
+  language: python
+  code: |
+    ages = {"Sam": 14, "Ali": 15}
+    ages["Mia"] = 13
+    print(ages["Ali"])   # 15
+    for name, age in ages.items():
+        print(name, age)
+relatedTerms:
+  - list

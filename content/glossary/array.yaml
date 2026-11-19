@@ -1,0 +1,21 @@
+term: 'Array'
+firstSprint: arrays-strings-and-pointers
+explanation: 'An array is a fixed number of values of the same type, stored side by side in memory. Picture a row of numbered lockers: you choose how many when you build it, and the numbers start at 0.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    int main(void) {
+        int scores[4] = {12, 7, 19, 5};
+        int total = 0;
+        for (int i = 0; i < 4; i++) {
+            total += scores[i];
+        }
+        printf("Total: %d\n", total);
+        return 0;
+    }
+relatedTerms:
+  - list
+  - pointer
+  - address

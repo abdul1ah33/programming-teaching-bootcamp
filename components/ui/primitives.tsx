@@ -57,7 +57,9 @@ export function SectionHeading({
       <Tag id={id} className="text-[0.95rem] font-semibold tracking-[-0.005em] text-text">
         {children}
       </Tag>
-      {aside && <div className="font-mono text-xs text-muted tabular">{aside}</div>}
+      {aside !== undefined && aside !== null && aside !== false && (
+        <div className="font-mono text-xs text-muted tabular">{aside}</div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,15 @@
+term: 'Function'
+firstSprint: collections-and-functions
+explanation: 'A function is a named block of code that does one job, and you can run (call) it whenever you need it. It''s like a kitchen appliance: something goes in, it does its job, something comes out. Functions stop you repeating yourself.'
+codeExample:
+  language: python
+  code: |
+    def greet(name):
+        return "Hi, " + name + "!"
+
+    print(greet("Sam"))
+    print(greet("Mia"))
+relatedTerms:
+  - parameter
+  - return-value
+  - scope

@@ -1,0 +1,14 @@
+term: 'Return value'
+firstSprint: collections-and-functions
+explanation: 'A return value is the answer a function hands back to the code that called it. return also ends the function straight away. A function without a return gives back None.'
+codeExample:
+  language: python
+  code: |
+    def is_even(n):
+        return n % 2 == 0
+
+    result = is_even(10)
+    print(result)   # True
+relatedTerms:
+  - function
+  - parameter

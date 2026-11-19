@@ -1,0 +1,17 @@
+term: 'Address'
+firstSprint: arrays-strings-and-pointers
+explanation: 'Every variable lives somewhere in memory, and that place has a number called its address, like a house number on a street. In C, & gives you the address of a variable.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+
+    int main(void) {
+        int age = 14;
+        printf("value:   %d\n", age);
+        printf("address: %p\n", (void *)&age);
+        return 0;
+    }
+relatedTerms:
+  - pointer
+  - array

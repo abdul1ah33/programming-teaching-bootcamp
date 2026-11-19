@@ -1,0 +1,17 @@
+term: 'Condition'
+firstSprint: decisions-and-loops
+explanation: 'A condition is a yes-or-no question that decides which code runs. if, elif and else let a program take different paths, like a fork in the road.'
+codeExample:
+  language: python
+  code: |
+    temperature = 31
+    if temperature > 30:
+        print("Hot")
+    elif temperature > 15:
+        print("Mild")
+    else:
+        print("Cold")
+relatedTerms:
+  - boolean
+  - loop
+  - flowchart

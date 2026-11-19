@@ -1,0 +1,25 @@
+term: 'malloc and free'
+firstSprint: memory-management
+explanation: 'malloc asks the heap for a block of memory and gives you a pointer to it, or NULL if there isn''t enough. free gives the memory back when you''re done. Every malloc needs exactly one free.'
+codeExample:
+  language: c
+  code: |
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main(void) {
+        double *price = malloc(sizeof(double));
+        if (price == NULL) {
+            printf("Out of memory\n");
+            return 1;
+        }
+        *price = 2.50;
+        printf("%.2f\n", *price);
+        free(price);
+        price = NULL;   // so it can't be used by mistake
+        return 0;
+    }
+relatedTerms:
+  - heap
+  - memory-leak
+  - pointer
