@@ -60,7 +60,7 @@ function Menu({ label, items, pathname }: { label: string; items: NavLink[]; pat
           aria-hidden="true"
           className={cx('size-3.5 transition-transform duration-150', open && 'rotate-180')}
         />
-        {active && <ActiveMark />}
+        <ActiveMark active={active} />
       </button>
       <div
         id={id}
@@ -87,8 +87,17 @@ function Menu({ label, items, pathname }: { label: string; items: NavLink[]; pat
   );
 }
 
-function ActiveMark() {
-  return <span aria-hidden="true" className="absolute inset-x-2.5 -bottom-[13px] h-0.5 rounded-full bg-primary" />;
+/**
+ * Always rendered (only its visibility changes) so a page served for a different path — like the
+ * shared 404 — hydrates without a structural mismatch.
+ */
+function ActiveMark({ active }: { active: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={cx('absolute inset-x-2.5 -bottom-[13px] h-0.5 rounded-full bg-primary', !active && 'invisible')}
+    />
+  );
 }
 
 export function DesktopNav() {
@@ -100,7 +109,7 @@ export function DesktopNav() {
         return (
           <Link key={item.href} href={item.href} aria-current={active ? 'page' : undefined} className={itemClass(active)}>
             {item.label}
-            {active && <ActiveMark />}
+            <ActiveMark active={active} />
           </Link>
         );
       })}

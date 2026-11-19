@@ -1,8 +1,12 @@
-import type { ReactNode } from 'react';
-import { SiteFooter } from '@/components/features/site-footer';
-import { SiteHeader } from '@/components/features/site-header';
+'use client';
 
-export default function SiteLayout({ children }: { children: ReactNode }) {
+import { usePathname } from 'next/navigation';
+import type { ReactNode } from 'react';
+
+/** Wraps every page with the site header/footer, except the admin at /keystatic. */
+export function SiteChrome({ header, footer, children }: { header: ReactNode; footer: ReactNode; children: ReactNode }) {
+  const pathname = usePathname();
+  if (pathname.startsWith('/keystatic')) return <>{children}</>;
   return (
     <div className="flex min-h-dvh flex-col">
       <a
@@ -11,11 +15,11 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       >
         Skip to content
       </a>
-      <SiteHeader />
+      {header}
       <main id="main" className="flex-1">
         {children}
       </main>
-      <SiteFooter />
+      {footer}
     </div>
   );
 }

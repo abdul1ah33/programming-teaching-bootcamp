@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import { SiteChrome } from '@/components/features/site-chrome';
+import { SiteFooter } from '@/components/features/site-footer';
+import { SiteHeader } from '@/components/features/site-header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { fraunces, jetbrainsMono, plexSans } from './fonts';
 import './globals.css';
@@ -25,7 +28,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${fraunces.variable} ${plexSans.variable} ${jetbrainsMono.variable}`}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SiteChrome header={<SiteHeader />} footer={<SiteFooter />}>
+            {children}
+          </SiteChrome>
+        </ThemeProvider>
       </body>
     </html>
   );

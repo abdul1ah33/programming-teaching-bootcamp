@@ -130,15 +130,15 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 4 — Core pages
 
-- [ ] `/roadmap`: hand-drawn-feeling SVG path (built in code) grouped by phase, each stop shows number, title, status; accessible list fallback
-- [ ] `/sprints/[slug]` for all 10 (generateStaticParams), related sessions, project, glossary placeholder hook (filled in Phase 6)
-- [ ] `/sessions`: timeline, client-side filter by sprint and status (URL query synced)
-- [ ] `/sessions/[number]`: summary (rich text), files, homework, links, points earned in that session
-- [ ] `/resources`: all files, filter by sprint and type; PDFs preview inline (lazy `<iframe>`/`<object>` behind a "Preview" toggle), other types download
-- [ ] `/projects` gallery + `/projects/[slug]` detail
-- [ ] `/plan`: plain-language plan, schedule, how progress is checked (checks met; mastery over speed), PDF download, contact
-- [ ] `not-found.tsx`: helpful 404 with links
-- [ ] Rich-text renderer for Keystatic content (summary, teacher note)
+- [x] `/roadmap`: hand-drawn-feeling SVG path (built in code) grouped by phase, each stop shows number, title, status; accessible list fallback
+- [x] `/sprints/[slug]` for all 10 (generateStaticParams), related sessions, project, glossary placeholder hook (filled in Phase 6)
+- [x] `/sessions`: timeline, client-side filter by sprint and status (URL query synced)
+- [x] `/sessions/[number]`: summary (rich text), files, homework, links, points earned in that session
+- [x] `/resources`: all files, filter by sprint and type; PDFs preview inline (lazy `<iframe>`/`<object>` behind a "Preview" toggle), other types download
+- [x] `/projects` gallery + `/projects/[slug]` detail
+- [x] `/plan`: plain-language plan, schedule, how progress is checked (checks met; mastery over speed), PDF download, contact
+- [x] `not-found.tsx`: helpful 404 with links
+- [x] Rich-text renderer for Keystatic content (summary, teacher note)
 
 **Acceptance gate (Phase 4)**
 - `npm run verify` passes; `next build` output lists all pages as static (○ / ●) except Keystatic routes.
