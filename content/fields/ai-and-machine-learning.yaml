@@ -1,0 +1,21 @@
+name: 'AI & machine learning'
+icon: brain
+order: 5
+summary: 'Teach computers to find patterns in data and make predictions.'
+whatItIs: 'Instead of writing every rule by hand, machine learning lets a program learn rules from examples: thousands of photos of cats, or past results, or text. It needs good data, careful testing, and some maths, which you can learn bit by bit.'
+whatYoudLearn:
+  - 'Python with NumPy and pandas'
+  - 'scikit-learn for first models'
+  - 'Charts to understand data'
+  - 'The maths behind it, step by step'
+firstProject: 'Collect a small data set you care about (football scores, weather, your own quiz results), make charts of it, then try to predict the next value.'
+buildsOn:
+  text: 'It''s almost all Python: lists, dictionaries, functions and reading files. Big-O from Sprint 8 matters once the data gets large, and testing with sample inputs started in Sprint 0.'
+  sprints:
+    - computational-thinking
+    - collections-and-functions
+    - data-structures-and-algorithms-in-c
+goodFitIf:
+  - 'maths and patterns'
+  - 'asking "how could it know that?"'
+  - 'experimenting and measuring results'

@@ -1,0 +1,20 @@
+name: 'Web development'
+icon: globe
+order: 1
+summary: 'Make websites and web apps that anyone can open in a browser.'
+whatItIs: 'Every site you visit is built from three things: HTML for the content, CSS for how it looks, and JavaScript for what it does when you click. Web developers put these together, and often write code on a server too, so a site can save and share information.'
+whatYoudLearn:
+  - 'HTML and CSS'
+  - 'JavaScript'
+  - 'How browsers and servers talk to each other'
+  - 'A framework later, such as React'
+firstProject: 'A personal page about something you like, then turn your Sprint 2 guessing game into a version that runs in the browser.'
+buildsOn:
+  text: 'Variables, conditions, loops, lists and functions work the same way in JavaScript as in Python, so most of what you learned carries straight over. Breaking a page into small functions is Sprint 3 thinking.'
+  sprints:
+    - decisions-and-loops
+    - collections-and-functions
+goodFitIf:
+  - 'seeing your work straight away'
+  - 'design and making things look right'
+  - 'sharing what you make with friends'

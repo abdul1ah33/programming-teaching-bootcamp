@@ -201,9 +201,9 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 8 — What's next
 
-- [ ] Seed 6 fields: Web development, Game development, Mobile apps, Backend & APIs, AI & machine learning, Embedded systems & robotics (tied to C)
-- [ ] `/whats-next`: framed as "explore after the capstone", field cards
-- [ ] `/whats-next/[slug]`: what it is, what he'd learn, first project, how it builds on sprints (links), good fit if you enjoy…
+- [x] Seed 6 fields: Web development, Game development, Mobile apps, Backend & APIs, AI & machine learning, Embedded systems & robotics (tied to C)
+- [x] `/whats-next`: framed as "explore after the capstone", field cards
+- [x] `/whats-next/[slug]`: what it is, what he'd learn, first project, how it builds on sprints (links), good fit if you enjoy…
 
 **Acceptance gate (Phase 8)**
 - `npm run verify` passes.

@@ -1,0 +1,20 @@
+name: 'Mobile apps'
+icon: smartphone
+order: 3
+summary: 'Make apps for phones and tablets.'
+whatItIs: 'Mobile developers build the apps on your phone: screens, buttons, lists, notifications. Apps have to work on small screens, with touch, and often without an internet connection, which makes them an interesting puzzle.'
+whatYoudLearn:
+  - 'Kotlin (Android) or Swift (iPhone)'
+  - 'Or Flutter / React Native for both'
+  - 'Designing for small screens and touch'
+  - 'Saving data on the device'
+firstProject: 'A to-do list app: add a task, tick it off, and have it still be there when you open the app again.'
+buildsOn:
+  text: 'An app is lists and dictionaries on a screen, and saving the tasks is the same idea as the task list file in Sprint 4. Thinking about what happens when the user does something unexpected is the exception handling you already know.'
+  sprints:
+    - collections-and-functions
+    - building-useful-python-programs
+goodFitIf:
+  - 'ideas for apps you wish existed'
+  - 'making things simple and tidy'
+  - 'thinking about how people use things'

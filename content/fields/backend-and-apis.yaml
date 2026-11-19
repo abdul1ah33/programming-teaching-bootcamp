@@ -1,0 +1,21 @@
+name: 'Backend & APIs'
+icon: server
+order: 4
+summary: 'Write the hidden part of apps: servers, data and the rules behind them.'
+whatItIs: 'When an app shows your messages or a website remembers your login, a server somewhere did the work. Backend developers write that server code and the APIs that apps use to ask it for data. You don''t see it, but nearly everything depends on it.'
+whatYoudLearn:
+  - 'Python with Flask or FastAPI'
+  - 'Databases and SQL'
+  - 'How HTTP and APIs work'
+  - 'Keeping data safe'
+firstProject: 'A tiny API in Python that stores and returns quiz questions, then a small page or script that uses it.'
+buildsOn:
+  text: 'APIs send dictionaries back and forth, and a database is like a very big, very organised file. Choosing the right data structure for a job is exactly what Sprint 8 was about.'
+  sprints:
+    - collections-and-functions
+    - building-useful-python-programs
+    - data-structures-and-algorithms-in-c
+goodFitIf:
+  - 'logic and rules more than looks'
+  - 'organising information'
+  - 'knowing how things work behind the scenes'

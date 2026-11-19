@@ -1,0 +1,22 @@
+name: 'Embedded systems & robotics'
+icon: circuit-board
+order: 6
+summary: 'Program the small computers inside robots, gadgets and machines.'
+whatItIs: 'Washing machines, drones, cars and robots all have tiny computers inside. Embedded programmers write the code that reads sensors and drives motors, usually in C, with very little memory to spare. Your code makes something move in the real world.'
+whatYoudLearn:
+  - 'C on a microcontroller, such as Arduino'
+  - 'Reading sensors and driving motors'
+  - 'Working with tight memory'
+  - 'A little electronics'
+firstProject: 'An Arduino that blinks an LED, then one that reads a distance sensor and beeps faster as you get closer: the start of a parking sensor or a robot that avoids walls.'
+buildsOn:
+  text: 'This is where C really pays off. Arrays, pointers and careful memory use from Sprints 6 and 7 are everyday tools here, because a microcontroller might have only a few thousand bytes of memory. Structs from Sprint 8 describe sensors and devices.'
+  sprints:
+    - c-fundamentals
+    - arrays-strings-and-pointers
+    - memory-management
+    - data-structures-and-algorithms-in-c
+goodFitIf:
+  - 'building physical things'
+  - 'knowing exactly what the computer is doing'
+  - 'tinkering, wiring and fixing'

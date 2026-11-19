@@ -1,0 +1,20 @@
+name: 'Game development'
+icon: gamepad-2
+order: 2
+summary: 'Build games, from simple 2D arcade games to 3D worlds.'
+whatItIs: 'A game is a loop that runs many times a second: read the controls, update the world, draw the screen. Game developers write that loop, plus the rules, the physics and the art that make it fun to play.'
+whatYoudLearn:
+  - 'Pygame (Python) to start'
+  - 'A game engine later, such as Godot'
+  - 'Coordinates, collisions and simple physics'
+  - 'Organising code with classes'
+firstProject: 'A Pygame version of a classic: a ball that bounces off the walls, then a paddle to hit it with, then a score.'
+buildsOn:
+  text: 'The game loop is the while loop from Sprint 2. Every player, enemy and coin is an object, like the classes in Sprint 4. Saving a high score uses the file skills from Sprint 4 too.'
+  sprints:
+    - decisions-and-loops
+    - building-useful-python-programs
+goodFitIf:
+  - 'playing and taking games apart'
+  - 'drawing or animation'
+  - 'puzzles and tweaking rules until they feel right'
