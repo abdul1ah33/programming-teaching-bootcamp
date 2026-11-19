@@ -1,0 +1,7 @@
+name: Loop master
+description: Finished Sprint 2 — conditions, loops and when they stop.
+icon: repeat
+order: 3
+rule:
+  discriminant: sprintCompleted
+  value: 2

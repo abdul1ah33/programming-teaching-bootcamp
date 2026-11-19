@@ -1,0 +1,7 @@
+name: Python graduate
+description: Completed every Python sprint.
+icon: award
+order: 8
+rule:
+  discriminant: phaseCompleted
+  value: python

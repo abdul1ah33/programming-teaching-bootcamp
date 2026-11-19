@@ -1,0 +1,9 @@
+name: Bug hunter
+description: Found and fixed five bugs.
+icon: bug
+order: 4
+rule:
+  discriminant: activityCount
+  value:
+    activity: bugfix
+    count: 5

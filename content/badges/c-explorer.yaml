@@ -1,0 +1,7 @@
+name: C explorer
+description: Completed every C sprint, from first program to linked lists.
+icon: cpu
+order: 9
+rule:
+  discriminant: phaseCompleted
+  value: c

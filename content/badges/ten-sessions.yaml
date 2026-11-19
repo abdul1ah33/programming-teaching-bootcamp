@@ -1,0 +1,7 @@
+name: Ten sessions
+description: Turned up and worked through ten sessions.
+icon: calendar-check
+order: 6
+rule:
+  discriminant: sessionsDone
+  value: 10

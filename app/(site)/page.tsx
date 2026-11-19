@@ -1,5 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { BadgeMedallion } from '@/components/features/badge-medallion';
+import { NewBadgeFlag } from '@/components/features/new-badge-flag';
 import { NextSession } from '@/components/features/next-session';
 import { ReadyChecks } from '@/components/features/ready-checks';
 import { SessionRow } from '@/components/features/session-row';
@@ -7,7 +9,6 @@ import { FileRow } from '@/components/ui/file-row';
 import { Card, Container, EmptyState, SectionHeading, TextLink } from '@/components/ui/primitives';
 import { SegmentedProgress } from '@/components/ui/progress-bar';
 import { StatusPill } from '@/components/ui/status-pill';
-import { ContentIcon } from '@/components/ui/icon';
 import { getBadges, getPointsLog, getProjects, getSessions, getSettings, getSprints } from '@/lib/content';
 import { evaluateBadges, latestBadge } from '@/lib/derive/badges';
 import { currentSprint, journeyComplete } from '@/lib/derive/current-sprint';
@@ -153,14 +154,15 @@ export default async function HomePage() {
                 {badge ? (
                   <div className="mt-2 flex items-center justify-end gap-2">
                     <span className="min-w-0">
-                      <span className="block truncate text-sm font-medium text-text">{badge.badge.name}</span>
+                      <span className="block text-sm font-medium leading-snug text-text">{badge.badge.name}</span>
                       {badge.unlockedOn && (
                         <span className="block font-mono text-xs text-muted tabular">{formatDate(badge.unlockedOn)}</span>
                       )}
+                      <span className="mt-1 flex justify-end">
+                        <NewBadgeFlag unlockedOn={badge.unlockedOn} />
+                      </span>
                     </span>
-                    <span className="grid size-9 shrink-0 place-items-center rounded-full border border-primary/40 bg-primary-tint text-primary">
-                      <ContentIcon name={badge.badge.icon} className="size-4" />
-                    </span>
+                    <BadgeMedallion icon={badge.badge.icon} unlocked size={44} />
                   </div>
                 ) : (
                   <p className="mt-2 text-sm text-muted">None yet. The first one is close.</p>

@@ -150,12 +150,12 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 5 — Points & badges
 
-- [ ] Seed ~10 badges (First program, Loop master = Sprint 2, Python graduate = Phase Python, C explorer = Phase C, Bug hunter = 5 bug fixes, 50 points, 100 points, 10 sessions, First project, Capstone builder = Sprint 9)
-- [ ] SVG medallion component (consistent shape, Lucide glyph centre, locked = greyed + lock state)
-- [ ] `/points`: total, simple SVG chart of cumulative points over time (accessible table fallback), badge wall (unlocked with date, locked with how to unlock + progress), points log newest first, points rules
-- [ ] "New badge" moment: understated highlight for badges unlocked in the last 14 days (client-side, respects reduced motion, no confetti)
-- [ ] Home-page widgets wired: points total + latest badge; nav Points link shows total
-- [ ] Session detail shows points earned in that session (verify)
+- [x] Seed ~10 badges (First program, Loop master = Sprint 2, Python graduate = Phase Python, C explorer = Phase C, Bug hunter = 5 bug fixes, 50 points, 100 points, 10 sessions, First project, Capstone builder = Sprint 9)
+- [x] SVG medallion component (consistent shape, Lucide glyph centre, locked = greyed + lock state)
+- [x] `/points`: total, simple SVG chart of cumulative points over time (accessible table fallback), badge wall (unlocked with date, locked with how to unlock + progress), points log newest first, points rules
+- [x] "New badge" moment: understated highlight for badges unlocked in the last 14 days (client-side, respects reduced motion, no confetti)
+- [x] Home-page widgets wired: points total + latest badge; nav Points link shows total
+- [x] Session detail shows points earned in that session (verify)
 
 **Acceptance gate (Phase 5)**
 - `npm run verify` passes; validate-content checks badge rules reference real sprints/phases/activities.

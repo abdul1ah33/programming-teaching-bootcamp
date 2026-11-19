@@ -1,0 +1,7 @@
+name: Capstone builder
+description: Planned, built and presented the capstone project.
+icon: rocket
+order: 10
+rule:
+  discriminant: sprintCompleted
+  value: 9

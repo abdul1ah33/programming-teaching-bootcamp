@@ -42,3 +42,8 @@ A log of technical decisions, one line each with the reason. Newest at the botto
 | 36 | 2026-11-19 | 4 | PDF preview is an `<iframe>` created only when "Preview here" is pressed. | Large PDFs aren't downloaded until someone asks to see them. |
 | 37 | 2026-11-19 | 4 | `/plan` text is written into the page from the curriculum PDF (sections 01–06), using the first name from settings. | The plan is fixed curriculum text, not content edited week to week. |
 | 38 | 2026-11-19 | 4 | Road map: one SVG segment per row, stretched to the row height, with seeded wobble; phase headings are rows of the same list. | The path always connects whatever the card heights, and looks drawn rather than generated. |
+| 39 | 2026-11-19 | 5 | Chart line uses a `--chart` token: #1F7A4D light, #3FA572 dark. | The dataviz validator failed #4CB884 on the dark surface (lightness band); #3FA572 passes; light green passes as is. |
+| 40 | 2026-11-19 | 5 | Points chart = cumulative step line + 10% area, hairline grid, crosshair tooltip snapping to the nearest day, arrow keys, "Show as a table". | Single series, change over time; dataviz skill specs; accessible without hover. |
+| 41 | 2026-11-19 | 5 | "New" badge moment = small "New" tag + one 200 ms ring on the medallion for 14 days, computed in the browser. | Understated; no confetti; disappears without a redeploy. |
+| 42 | 2026-11-19 | 5 | **Bug fix to Phase 2 copy:** phase-badge wording strips a leading "The" ("the C language phase"). Test added. | Showed "in the The C language phase" on the badge wall. |
+| 43 | 2026-11-19 | 5 | Seeded 10 badges; only "First program" is manual. "First project" unlocks from the example project (10 Nov). | Shows one unlocked badge with a derived date and nine locked with progress. |

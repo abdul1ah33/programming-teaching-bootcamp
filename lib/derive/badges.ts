@@ -121,7 +121,8 @@ function evaluate(rule: BadgeRule, input: BadgeInputs): Omit<BadgeStatus, 'badge
       const unlocked = inPhase.length > 0 && done.length === inPhase.length;
       const dates = done.map((s) => s.completedOn);
       const unlockedOn = unlocked && dates.every((d) => d !== null) ? ([...dates].sort().at(-1) ?? null) : null;
-      const phaseLabel = PHASES.find((p) => p.value === rule.phase)?.label ?? rule.phase;
+      // "The C language" → "the C language phase", not "the The C language phase".
+      const phaseLabel = (PHASES.find((p) => p.value === rule.phase)?.label ?? rule.phase).replace(/^The /, '');
       return {
         unlocked,
         unlockedOn,

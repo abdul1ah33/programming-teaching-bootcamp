@@ -1,0 +1,7 @@
+name: 50 points
+description: The first fifty points.
+icon: star
+order: 5
+rule:
+  discriminant: totalPoints
+  value: 50

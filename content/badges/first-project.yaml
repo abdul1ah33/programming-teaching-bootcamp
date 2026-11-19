@@ -1,0 +1,7 @@
+name: First project
+description: Finished a first project from start to end.
+icon: hammer
+order: 2
+rule:
+  discriminant: projectsFinished
+  value: 1

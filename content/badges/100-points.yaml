@@ -1,0 +1,7 @@
+name: 100 points
+description: A hundred points of steady work.
+icon: trophy
+order: 7
+rule:
+  discriminant: totalPoints
+  value: 100

@@ -1,0 +1,8 @@
+name: First program
+description: Wrote and ran a first Python program.
+icon: terminal
+order: 1
+rule:
+  discriminant: manual
+  value:
+    howToEarn: Write and run your first Python program in Sprint 1.

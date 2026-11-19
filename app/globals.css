@@ -23,6 +23,7 @@
   --danger: #a33a2c;
   --danger-tint: #f8e7e4;
   --focus: #1f7a4d;
+  --chart: #1f7a4d;
   color-scheme: light;
 }
 
@@ -43,6 +44,7 @@
   --danger: #ec8b7c;
   --danger-tint: #2f1b18;
   --focus: #4cb884;
+  --chart: #3fa572; /* validated for the dark chart surface (dataviz lightness band) */
   color-scheme: dark;
 }
 
@@ -62,6 +64,7 @@
   --color-warn-tint: var(--warn-tint);
   --color-danger: var(--danger);
   --color-danger-tint: var(--danger-tint);
+  --color-chart: var(--chart);
 
   --font-serif: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-plex-sans), system-ui, sans-serif;
@@ -228,4 +231,31 @@ html:has(dialog[open]) {
   border-left: 2px solid var(--primary);
   padding-left: 1rem;
   color: var(--muted);
+}
+
+/* ------------------------------------------------------------------
+   The understated "new badge" moment: a soft ring that settles in once (≤200ms).
+   ------------------------------------------------------------------ */
+.badge-new {
+  animation: badge-new-in 200ms ease-out both;
+}
+li:has(.badge-new) .badge-medallion {
+  border-radius: 9999px;
+  box-shadow:
+    0 0 0 3px var(--surface),
+    0 0 0 4px var(--primary);
+  animation: badge-ring-in 200ms ease-out both;
+}
+@keyframes badge-new-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+}
+@keyframes badge-ring-in {
+  from {
+    box-shadow:
+      0 0 0 0 var(--surface),
+      0 0 0 0 var(--primary);
+  }
 }

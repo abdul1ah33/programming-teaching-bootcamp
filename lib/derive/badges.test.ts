@@ -238,3 +238,10 @@ describe('ordering helpers', () => {
     expect(isNewBadge(statuses[3]!, '2026-11-15')).toBe(false);
   });
 });
+
+describe('phase wording', () => {
+  it('does not double the article for "The C language"', () => {
+    const s = evaluateBadges(base({ badges: [badge('c', { kind: 'phaseCompleted', phase: 'c' })] }))[0];
+    expect(s?.howToUnlock).toBe('Complete all 4 sprints in the C language phase.');
+  });
+});
