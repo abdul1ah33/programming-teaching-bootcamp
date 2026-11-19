@@ -214,12 +214,12 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 9 — Admin
 
-- [ ] Storage switch: `KEYSTATIC_STORAGE=github` (+ `NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO` / `KEYSTATIC_GITHUB_REPO` owner/name) → github mode, else local
-- [ ] Env vars documented in `.env.example`: `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`, `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`
-- [ ] Admin UX: sensible field order, descriptions, defaults (today for dates, `planned` status, next session number hint), entry labels
-- [ ] Basic Auth middleware doesn't block Keystatic GitHub OAuth callback incorrectly (document behaviour)
-- [ ] Walk through each editing action in local mode (Playwright or manual via dev server) and record field count + steps: mark session done · add session · attach a file to a session and to a sprint · tick a ready check · change sprint status · award points · write the monthly note · add a badge
-- [ ] Revert test edits afterwards (git checkout of content changes made during the walkthrough)
+- [x] Storage switch: `KEYSTATIC_STORAGE=github` (+ `NEXT_PUBLIC_KEYSTATIC_GITHUB_REPO` / `KEYSTATIC_GITHUB_REPO` owner/name) → github mode, else local
+- [x] Env vars documented in `.env.example`: `KEYSTATIC_GITHUB_CLIENT_ID`, `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET`, `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`
+- [x] Admin UX: sensible field order, descriptions, defaults (today for dates, `planned` status, next session number hint), entry labels
+- [x] Basic Auth middleware doesn't block Keystatic GitHub OAuth callback incorrectly (document behaviour)
+- [x] Walk through each editing action in local mode (Playwright or manual via dev server) and record field count + steps: mark session done · add session · attach a file to a session and to a sprint · tick a ready check · change sprint status · award points · write the monthly note · add a badge
+- [x] Revert test edits afterwards (git checkout of content changes made during the walkthrough)
 
 **Acceptance gate (Phase 9)**
 - `npm run verify` passes.

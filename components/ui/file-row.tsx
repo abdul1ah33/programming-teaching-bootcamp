@@ -20,6 +20,20 @@ function FileIcon({ url, className }: { url: string; className?: string }) {
 
 export const fileTypeLabel = (type: FileType) => FILE_TYPES.find((t) => t.value === type)?.label ?? type;
 
+/**
+ * Keystatic stores uploads by field position (…/files/0/file.pdf), so name the download after its
+ * label instead: "Loops — slides" → "loops-slides.pdf".
+ */
+export function downloadName(label: string, url: string): string {
+  const ext = fileExtension(url);
+  const base = label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60) || 'file';
+  return ext ? `${base}.${ext}` : base;
+}
+
 /** One file: icon, label, type and extension, with Open (PDF) / Download actions. */
 export function FileRow({
   label,
@@ -63,7 +77,7 @@ export function FileRow({
         )}
         <a
           href={url}
-          download
+          download={downloadName(label, url)}
           className="inline-flex items-center gap-1 rounded-md px-2 py-1.5 text-xs font-medium text-muted hover:bg-surface-2 hover:text-text"
         >
           <Download className="size-3.5" aria-hidden="true" />
