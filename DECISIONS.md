@@ -54,3 +54,6 @@ A log of technical decisions, one line each with the reason. Newest at the botto
 | 48 | 2026-11-19 | 6 | Shared print stylesheet: A4, light tokens forced even in dark mode, no chrome, code wraps; cheat sheets print in 2 columns (3 pages each). | Spec: clean print layout on few A4 pages; reused by monthly reports. |
 | 49 | 2026-11-19 | 6 | **Bug fix to Phase 3 primitive:** `SectionHeading` rendered a bare `0` when the count was 0. | React renders `0 && …` as "0", unstyled. |
 | 50 | 2026-11-19 | 6 | Accent-stripping regex written as `/\p{M}/gu` (in glossary filter and Keystatic slugify). | The shell had expanded `̀-ͯ` into literal combining characters; the escape-free form can't be mangled. |
+| 51 | 2026-11-19 | 7 | Report pages are built for every month from the start date to the **build** month; "today" for a report is the build date (shown on the report). `/reports` shows a hint in the browser when a newer month has started since the last deploy. | Reports are static pages (no server); any admin save redeploys, which adds the new month. |
+| 52 | 2026-11-19 | 7 | `lib/content/reports.ts` composes content + derive for reports. | Keeps pages free of Reader calls and derive free of content imports. |
+| 53 | 2026-11-19 | 7 | Seeded November report prints on exactly 1 A4 page (Playwright `page.pdf`), light even with dark mode stored. | Phase 7 gate. |

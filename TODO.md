@@ -186,10 +186,10 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 7 — Monthly reports
 
-- [ ] `/reports`: list of months from start date to the current month (static at build + client hint for months added since deploy)
-- [ ] `/reports/[month]`: stats (sessions held vs planned, sprints completed + current sprint, checks ticked, projects finished, points earned, badges unlocked) + monthly note (highlights, focus next month, message to parents); stats only when no note
-- [ ] "Print / Save as PDF" button
-- [ ] Print stylesheet: A4, always light colours, no navigation/footer, fits one page with seed data
+- [x] `/reports`: list of months from start date to the current month (static at build + client hint for months added since deploy)
+- [x] `/reports/[month]`: stats (sessions held vs planned, sprints completed + current sprint, checks ticked, projects finished, points earned, badges unlocked) + monthly note (highlights, focus next month, message to parents); stats only when no note
+- [x] "Print / Save as PDF" button
+- [x] Print stylesheet: A4, always light colours, no navigation/footer, fits one page with seed data
 
 **Acceptance gate (Phase 7)**
 - `npm run verify` passes.

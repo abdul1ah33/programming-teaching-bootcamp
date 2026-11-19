@@ -341,3 +341,14 @@ samp,
   font-variant-ligatures: none;
   font-feature-settings: 'liga' 0, 'calt' 0;
 }
+
+/* Monthly report on paper: full width, tight spacing, one A4 page. */
+@media print {
+  .report {
+    max-width: none;
+    padding: 0;
+  }
+  .report .prose-journey > * + * {
+    margin-top: 0.4em;
+  }
+}

@@ -8,3 +8,4 @@ export { getGlossary, getTerm } from './glossary';
 export { getCheatSheet, getCheatSheets } from './cheatsheets';
 export { getMonthlyNoteBody, getMonthlyNotes } from './monthly-notes';
 export { getField, getFields } from './fields';
+export { buildDate, getMonthReport, getReportMonths } from './reports';
