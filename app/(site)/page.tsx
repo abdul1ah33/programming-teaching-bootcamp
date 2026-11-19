@@ -226,7 +226,7 @@ export default async function HomePage() {
                     key={f.key}
                     label={f.label}
                     type={f.type}
-                    url={f.url}
+                    url={f.url} size={f.size}
                     meta={
                       f.session ? <span>Session {f.session.number}</span> : f.sprint ? <span>Sprint {f.sprint.number}</span> : null
                     }

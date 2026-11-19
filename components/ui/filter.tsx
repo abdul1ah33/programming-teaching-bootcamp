@@ -31,7 +31,7 @@ export function SelectFilter({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-9 min-w-0 rounded-md border border-border bg-surface px-2.5 pr-8 text-sm text-text hover:border-border-strong"
+        className="h-9 min-w-0 rounded-md border border-control bg-surface px-2.5 pr-8 text-sm text-text hover:border-text"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value}>

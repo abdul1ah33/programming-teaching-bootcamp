@@ -231,13 +231,13 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 10 — Polish & QA
 
-- [ ] Responsive pass at 375 and 1280 on every page, both themes
-- [ ] Keyboard pass: every interactive control reachable, visible focus, menus/drawers/filters/copy buttons
-- [ ] Contrast check: compute WCAG ratios for every token text/background pair in both themes (script), fix any < 4.5 (body) / < 3 (large/UI)
-- [ ] Empty states: no sessions, no points, no projects, no files, no note, filter with no results
-- [ ] Large PDFs: preview loads lazily and only on demand; file size shown
-- [ ] Copy pass against the spec's "Avoid" list and plain-teacher tone
-- [ ] Lighthouse-style sanity (no console errors, images sized, no layout shift on theme load)
+- [x] Responsive pass at 375 and 1280 on every page, both themes
+- [x] Keyboard pass: every interactive control reachable, visible focus, menus/drawers/filters/copy buttons
+- [x] Contrast check: compute WCAG ratios for every token text/background pair in both themes (script), fix any < 4.5 (body) / < 3 (large/UI)
+- [x] Empty states: no sessions, no points, no projects, no files, no note, filter with no results
+- [x] Large PDFs: preview loads lazily and only on demand; file size shown
+- [x] Copy pass against the spec's "Avoid" list and plain-teacher tone
+- [x] Lighthouse-style sanity (no console errors, images sized, no layout shift on theme load)
 
 **Acceptance gate (Phase 10)**
 - `npm run verify` passes.

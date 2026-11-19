@@ -99,6 +99,7 @@ function ResourceListView({
                 label={r.label}
                 type={r.type}
                 url={r.url}
+                size={r.size}
                 meta={
                   r.session ? (
                     <Link href={`/sessions/${r.session.slug}`} className="hover:text-text hover:underline">

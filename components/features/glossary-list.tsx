@@ -51,7 +51,7 @@ export function GlossaryList({ items, sprints }: { items: GlossaryItem[]; sprint
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="e.g. loop, pointer, list"
                 autoComplete="off"
-                className="h-9 w-full rounded-md border border-border bg-surface pl-8 pr-3 text-sm text-text placeholder:text-muted/80 hover:border-border-strong"
+                className="h-9 w-full rounded-md border border-control bg-surface pl-8 pr-3 text-sm text-text placeholder:text-muted hover:border-text"
               />
             </div>
           </div>

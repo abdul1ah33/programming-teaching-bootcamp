@@ -7,6 +7,7 @@ export interface Resource {
   label: string;
   type: FileType;
   url: string;
+  size?: number;
   /** Lower-case extension without the dot, e.g. "pdf". Empty when unknown. */
   extension: string;
   source: 'sprint' | 'session';
@@ -19,6 +20,13 @@ export function fileExtension(url: string): string {
   const name = clean.slice(clean.lastIndexOf('/') + 1);
   const dot = name.lastIndexOf('.');
   return dot > 0 ? name.slice(dot + 1).toLowerCase() : '';
+}
+
+/** "1.4 MB", "820 KB", "512 B". */
+export function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / 1024 / 1024).toFixed(bytes < 10 * 1024 * 1024 ? 1 : 0)} MB`;
 }
 
 /** PDFs preview inline; everything else downloads. */
@@ -41,6 +49,7 @@ export function allResources(sprints: readonly Sprint[], sessions: readonly Sess
         label: f.label,
         type: f.type,
         url: f.url,
+        size: f.size,
         extension: fileExtension(f.url),
         source: 'session' as const,
         sprint: sprintInfo.get(s.sprint) ?? null,
@@ -56,6 +65,7 @@ export function allResources(sprints: readonly Sprint[], sessions: readonly Sess
         label: f.label,
         type: f.type,
         url: f.url,
+        size: f.size,
         extension: fileExtension(f.url),
         source: 'sprint' as const,
         sprint: sprintInfo.get(s.slug) ?? null,

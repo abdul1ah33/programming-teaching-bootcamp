@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { session, sprint } from '@/tests/fixtures';
-import { allResources, canPreview, fileExtension, latestResources } from './resources';
+import { allResources, canPreview, fileExtension, formatBytes, latestResources } from './resources';
 
 describe('fileExtension / canPreview', () => {
   it('reads the extension from a path, ignoring query and hash', () => {
@@ -59,5 +59,14 @@ describe('allResources', () => {
   it('latestResources limits the list', () => {
     expect(latestResources(sprints, sessions, 2).map((x) => x.label)).toEqual(['Exercises 2', 'Solution 2']);
     expect(latestResources([], [])).toEqual([]);
+  });
+});
+
+describe('formatBytes', () => {
+  it('uses B, KB and MB', () => {
+    expect(formatBytes(512)).toBe('512 B');
+    expect(formatBytes(1451)).toBe('1 KB');
+    expect(formatBytes(1.4 * 1024 * 1024)).toBe('1.4 MB');
+    expect(formatBytes(14.6 * 1024 * 1024)).toBe('15 MB');
   });
 });

@@ -14,6 +14,7 @@
   --muted: #5b6159;
   --border: #e6e8e3;
   --border-strong: #cfd3cb;
+  --control: #868c84; /* form-control outlines: ≥3:1 on bg, surface and surface-2 (WCAG 1.4.11) */
   --primary: #1f7a4d;
   --primary-hover: #17633e;
   --primary-tint: #e8f3ec;
@@ -35,6 +36,7 @@
   --muted: #9aa59e;
   --border: #26302b;
   --border-strong: #36423c;
+  --control: #64706a;
   --primary: #4cb884;
   --primary-hover: #66c899;
   --primary-tint: #1a2d23;
@@ -56,6 +58,7 @@
   --color-muted: var(--muted);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
+  --color-control: var(--control);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-tint: var(--primary-tint);
@@ -278,6 +281,7 @@ li:has(.badge-new) .badge-medallion {
     --muted: #4a5049;
     --border: #dcdfd8;
     --border-strong: #c4c8c0;
+    --control: #868c84;
     --primary: #1f7a4d;
     --primary-hover: #17633e;
     --primary-tint: #e8f3ec;

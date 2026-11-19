@@ -1,9 +1,16 @@
+import { existsSync, statSync } from 'node:fs';
+import path from 'node:path';
 import type { FileRef, Sprint } from '@/lib/model/types';
 import { memo, orNull, reader } from './reader';
 
 type RawFile = { label: string; type: FileRef['type']; file: string | null };
+function fileSize(url: string): number | undefined {
+  const onDisk = path.join(process.cwd(), 'public', decodeURIComponent(url));
+  return existsSync(onDisk) ? statSync(onDisk).size : undefined;
+}
+
 export const toFiles = (files: readonly RawFile[]): FileRef[] =>
-  files.flatMap((f) => (f.file ? [{ label: f.label, type: f.type, url: f.file }] : []));
+  files.flatMap((f) => (f.file ? [{ label: f.label, type: f.type, url: f.file, size: fileSize(f.file) }] : []));
 
 export const getSprints = memo(async (): Promise<Sprint[]> => {
   const all = await reader.collections.sprints.all();

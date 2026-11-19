@@ -21,6 +21,8 @@ export interface FileRef {
   label: string;
   type: FileType;
   url: string;
+  /** Size in bytes, read at build time; undefined if the file isn't on disk. */
+  size?: number;
 }
 
 export interface ReadyCheck {

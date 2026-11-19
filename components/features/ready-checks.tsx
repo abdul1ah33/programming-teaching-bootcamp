@@ -13,7 +13,7 @@ export function ReadyChecks({ checks, compact = false }: { checks: ReadyCheck[];
             aria-hidden="true"
             className={cx(
               'mt-[3px] grid size-[18px] shrink-0 place-items-center rounded-[5px] border',
-              c.done ? 'border-primary bg-primary text-on-primary' : 'border-border-strong bg-surface',
+              c.done ? 'border-primary bg-primary text-on-primary' : 'border-control bg-surface',
             )}
           >
             {c.done && <Check className="size-3" strokeWidth={3} />}

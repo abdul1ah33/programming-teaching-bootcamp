@@ -213,7 +213,7 @@ export default async function SprintPage({ params }: Props) {
             {sprint.files.length > 0 ? (
               <div className="divide-y divide-border">
                 {sprint.files.map((f) => (
-                  <FileRow key={f.url} label={f.label} type={f.type} url={f.url} />
+                  <FileRow key={f.url} label={f.label} type={f.type} url={f.url} size={f.size} />
                 ))}
               </div>
             ) : (

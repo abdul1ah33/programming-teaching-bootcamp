@@ -1,6 +1,6 @@
 import { Download, Eye, File, FileArchive, FileText, Image as ImageIcon, Presentation } from 'lucide-react';
 import { FILE_TYPES, type FileType } from '@/lib/model/enums';
-import { canPreview, fileExtension } from '@/lib/derive/resources';
+import { canPreview, fileExtension, formatBytes } from '@/lib/derive/resources';
 import type { ReactNode } from 'react';
 import { cx, Tag } from './primitives';
 
@@ -39,12 +39,14 @@ export function FileRow({
   label,
   type,
   url,
+  size,
   meta,
   className,
 }: {
   label: string;
   type: FileType;
   url: string;
+  size?: number;
   meta?: ReactNode;
   className?: string;
 }) {
@@ -60,6 +62,7 @@ export function FileRow({
         <p className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
           <Tag>{fileTypeLabel(type)}</Tag>
           {ext && <span className="font-mono uppercase">{ext}</span>}
+          {size !== undefined && <span className="font-mono tabular">{formatBytes(size)}</span>}
           {meta}
         </p>
       </div>
