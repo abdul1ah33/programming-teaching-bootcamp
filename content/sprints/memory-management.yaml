@@ -1,0 +1,28 @@
+number: 7
+title: Memory Management
+status: upcoming
+phase: c
+duration: 2–3 weeks
+goal: Understand how memory is used and how dynamic allocation works in C.
+topics:
+  - A conceptual view of stack and heap memory
+  - Static versus dynamic allocation
+  - NULL pointers
+  - Defensive checks and simple debugging
+  - Variable lifetime and scope
+  - malloc(), calloc(), realloc(), and free()
+  - 'Common errors: memory leaks, dangling pointers, invalid access'
+missions:
+  - Allocate an array based on a user-provided size
+  - Resize a dynamically allocated array
+  - Identify and correct a memory leak in a small example
+  - Draw a memory diagram for a short program
+build: A dynamic collection program that allocates, uses, and releases memory correctly.
+readyChecks:
+  - text: Describe why dynamic allocation is useful
+    done: false
+  - text: Check the result of every allocation
+    done: false
+  - text: Explain why allocated memory must be released
+    done: false
+files: []

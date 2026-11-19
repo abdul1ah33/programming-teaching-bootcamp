@@ -1,0 +1,30 @@
+number: 9
+title: Independent Capstone Project
+status: upcoming
+phase: capstone
+duration: 3–4 weeks
+goal: Bring the learning together in a project planned and built largely by the learner.
+topics:
+  - Choosing a realistic project scope
+  - Designing program flow and data representation
+  - Testing normal and edge cases
+  - Presenting and explaining design decisions
+  - Writing requirements and breaking work into tasks
+  - Implementing features incrementally
+  - Debugging and improving code
+missions:
+  - Create a simple plan before coding
+  - Build a minimum working version first
+  - Keep a short development log
+  - Demonstrate the program and explain its most important parts
+build: A completed project chosen together with the teacher. Possible choices include a quiz game, text adventure, contact manager, library tracker, or data-structure visualizer/console demo.
+readyChecks:
+  - text: Explain the problem and the plan
+    done: false
+  - text: Code and test the project
+    done: false
+  - text: Demonstrate the project and reflect on it
+    done: false
+  - text: Do all of this with only a little help from the teacher
+    done: false
+files: []

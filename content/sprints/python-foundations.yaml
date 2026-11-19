@@ -1,0 +1,29 @@
+number: 1
+title: Python Foundations
+status: upcoming
+phase: python
+duration: 2 weeks
+goal: Write simple programs that receive information, process it, and display results.
+topics:
+  - What Python is; running a Python file
+  - Variables and naming
+  - Arithmetic and comparison operators
+  - Basic string formatting and common syntax errors
+  - print() and input()
+  - Integers, floats, strings, and booleans
+  - 'Type conversion: int(), float(), str()'
+missions:
+  - Ask for a name and display a greeting
+  - Calculate the area of a rectangle
+  - Convert Celsius to Fahrenheit
+  - Calculate the average of three scores
+  - Create a simple bill calculator
+build: A personal profile program and a menu-based basic calculator.
+readyChecks:
+  - text: Write a short program using variables, input/output, and operators
+    done: false
+  - text: Use the right type conversion (int(), float(), str())
+    done: false
+  - text: Do it without copying a complete solution
+    done: false
+files: []

@@ -1,0 +1,25 @@
+# PLACEHOLDER VALUES — replace them in the admin (Settings) or here.
+siteTitle: The Programming Learning Journey
+studentFirstName: Sam
+teacherName: Your Name
+contactEmail: teacher@example.com
+contactWhatsApp: ''
+startDate: 2026-11-02
+scheduleText: Tuesdays and Saturdays, 60–90 minutes each, plus short practice at home.
+learningPlanPdf: /files/plan/learning-plan.pdf
+pointsRules:
+  - key: exercise
+    label: Exercise completed
+    points: 5
+  - key: challenge
+    label: Challenge problem solved
+    points: 10
+  - key: independent
+    label: Solved independently
+    points: 15
+  - key: bugfix
+    label: Bug found and fixed
+    points: 5
+  - key: project
+    label: Mini-project / sprint project completed
+    points: 30

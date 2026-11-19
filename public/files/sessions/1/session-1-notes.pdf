@@ -1,0 +1,46 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 800 >>
+stream
+BT /F2 20 Tf 64 770 Td (Session 1 notes \(EXAMPLE\)) Tj ET
+BT /F1 12 Tf 64 740 Td (What is an algorithm?) Tj ET
+BT /F1 11 Tf 64 722 Td (An algorithm is a list of clear steps that solves a problem.) Tj ET
+BT /F1 11 Tf 64 704 Td (Each step must be exact: someone else should get the same result.) Tj ET
+BT /F1 12 Tf 64 674 Td (Inputs -> process -> outputs) Tj ET
+BT /F1 11 Tf 64 656 Td (Example: a two-number calculator.) Tj ET
+BT /F1 11 Tf 64 638 Td (Inputs: two numbers. Process: add them. Output: the sum.) Tj ET
+BT /F1 12 Tf 64 608 Td (Practice) Tj ET
+BT /F1 11 Tf 64 590 Td (1. Write the steps for making a sandwich.) Tj ET
+BT /F1 11 Tf 64 572 Td (2. Swap steps with a partner and follow them exactly.) Tj ET
+BT /F1 9 Tf 64 554 Td (This is a sample file. Delete it with the example session.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+1247
+%%EOF

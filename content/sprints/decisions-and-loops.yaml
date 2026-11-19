@@ -1,0 +1,29 @@
+number: 2
+title: Decisions and Loops
+status: upcoming
+phase: python
+duration: 2 weeks
+goal: Control the flow of a program using conditions and repetition.
+topics:
+  - if, elif, and else
+  - Nested conditions
+  - range()
+  - Loop tracing and avoiding infinite loops
+  - Boolean expressions and logical operators
+  - while loops and for loops
+  - break and continue
+missions:
+  - Check whether a number is even or odd
+  - Find the largest of three numbers
+  - Print multiplication tables
+  - Keep asking for a password until it is correct
+  - Count attempts in a guessing game
+build: A number guessing game with hints, a limited number of attempts, and replay functionality.
+readyChecks:
+  - text: Choose an appropriate condition or loop for a problem
+    done: false
+  - text: Trace the iterations of a loop
+    done: false
+  - text: Explain when a loop stops
+    done: false
+files: []

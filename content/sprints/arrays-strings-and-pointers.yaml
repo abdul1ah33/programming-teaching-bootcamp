@@ -1,0 +1,30 @@
+number: 6
+title: Arrays, Strings, and Pointers
+status: upcoming
+phase: c
+duration: 3 weeks
+goal: Understand contiguous memory, addresses, and how C accesses data.
+topics:
+  - Fixed-size arrays and indexing
+  - Character arrays and null-terminated strings
+  - The address-of operator (&)
+  - Relationship between arrays and pointers (introductory)
+  - Traversing arrays with loops
+  - What a memory address represents
+  - Pointer variables and dereferencing (*)
+  - Passing values and addresses to functions
+missions:
+  - Find the maximum value in an array
+  - Reverse an array
+  - Count characters in a string
+  - Swap two values using pointers
+  - Trace array elements and pointer addresses using diagrams
+build: A small C program that manages a collection of values using arrays and functions, including at least one pointer-based operation.
+readyChecks:
+  - text: Explain the difference between a value and an address
+    done: false
+  - text: Trace a basic pointer example
+    done: false
+  - text: Work with arrays safely
+    done: false
+files: []

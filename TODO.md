@@ -58,24 +58,24 @@ Screenshot widths used throughout: phone = 375×812, desktop = 1280×800.
 
 ## Phase 1 — Content model & seed
 
-- [ ] Install `@keystatic/core`, `@keystatic/next`; `keystatic.config.ts` at root (storage chosen by env var, see Phase 9 — local by default for now)
-- [ ] `app/keystatic/[[...params]]/page.tsx` + `app/api/keystatic/[...params]/route.ts` (minimal, so the admin opens in dev)
-- [ ] Singleton **settings**: studentFirstName, teacherName, contactEmail, contactWhatsApp, startDate, scheduleText, learningPlanPdf (file), siteTitle, pointsRules[] {key, label, points}
-- [ ] Collection **sprints**: number, slug, title, phase (thinking|python|c|capstone), duration, goal, topics[], missions[], build, readyChecks[] {text, done, doneOn?}, status, completedOn?, files[] {label, type, file}
-- [ ] Collection **sessions**: number, date, sprint (relationship), title, status, summary (rich text), files[] {label, type, file}, homework {description, dueDate, status}, links[] {label, url}
-- [ ] Collection **projects**: title, slug, sprint, description, screenshot (image), codeLink, status, finishedOn?, whatILearned
-- [ ] Collection **points**: date (default today), title, activity (select from rules + custom, conditional points field prefilled per rule), sprint?, session?
-- [ ] Collection **badges**: name, slug, description, icon (fixed Lucide list), unlock rule (conditional: manual{earnedOn} | totalPoints{n} | sprintCompleted{sprint number} | phaseCompleted{phase} | projectsFinished{n} | sessionsDone{n} | activityCount{activity, n})
-- [ ] Collection **glossary**: term, slug, explanation, codeExample {language, code}, firstSprint, relatedTerms[]
-- [ ] Collection **cheatsheets**: title, slug, language, intro, sections[] {heading, sprint, items[] {label, code, note}}
-- [ ] Collection **monthlyNotes**: month (YYYY-MM, validated), teacherNote (rich text), highlights[], focusNextMonth[], messageToParents?
-- [ ] Collection **fields**: name, slug, summary, whatItIs, whatYoudLearn[], firstProject, buildsOn {text, sprints[]}, goodFitIf[], icon
-- [ ] Seed **settings** with clearly marked placeholder values + the 5 points rules from the spec; copy learning-plan PDF to `public/files/plan/learning-plan.pdf`
-- [ ] Seed all **10 sprints** from the curriculum (titles, phase, duration, goal, topics, missions, build, ready checks); Sprint 0 `in-progress`, others `upcoming`
-- [ ] Seed **examples** (marked `EXAMPLE — delete me`): 2 sessions (one done with a small sample PDF, one planned), 1 project, 3 points entries, 1 monthly note
-- [ ] `lib/content/` — typed reader wrappers (one module per collection) — the only place that touches the Reader API
-- [ ] `scripts/validate-content.ts` + `npm run validate-content`: reads every collection/singleton through the Reader API, checks required fields, relationship targets exist, unique sprint/session numbers, month format, file paths exist on disk, point rule keys match settings; non-zero exit on failure. Added to `verify`.
-- [ ] Unit test that runs the validator against the seeded content
+- [x] Install `@keystatic/core`, `@keystatic/next`; `keystatic.config.ts` at root (storage chosen by env var, see Phase 9 — local by default for now)
+- [x] `app/keystatic/[[...params]]/page.tsx` + `app/api/keystatic/[...params]/route.ts` (minimal, so the admin opens in dev)
+- [x] Singleton **settings**: studentFirstName, teacherName, contactEmail, contactWhatsApp, startDate, scheduleText, learningPlanPdf (file), siteTitle, pointsRules[] {key, label, points}
+- [x] Collection **sprints**: number, slug, title, phase (thinking|python|c|capstone), duration, goal, topics[], missions[], build, readyChecks[] {text, done, doneOn?}, status, completedOn?, files[] {label, type, file}
+- [x] Collection **sessions**: number, date, sprint (relationship), title, status, summary (rich text), files[] {label, type, file}, homework {description, dueDate, status}, links[] {label, url}
+- [x] Collection **projects**: title, slug, sprint, description, screenshot (image), codeLink, status, finishedOn?, whatILearned
+- [x] Collection **points**: date (default today), title, activity (select from rules + custom, conditional points field prefilled per rule), sprint?, session?
+- [x] Collection **badges**: name, slug, description, icon (fixed Lucide list), unlock rule (conditional: manual{earnedOn} | totalPoints{n} | sprintCompleted{sprint number} | phaseCompleted{phase} | projectsFinished{n} | sessionsDone{n} | activityCount{activity, n})
+- [x] Collection **glossary**: term, slug, explanation, codeExample {language, code}, firstSprint, relatedTerms[]
+- [x] Collection **cheatsheets**: title, slug, language, intro, sections[] {heading, sprint, items[] {label, code, note}}
+- [x] Collection **monthlyNotes**: month (YYYY-MM, validated), teacherNote (rich text), highlights[], focusNextMonth[], messageToParents?
+- [x] Collection **fields**: name, slug, summary, whatItIs, whatYoudLearn[], firstProject, buildsOn {text, sprints[]}, goodFitIf[], icon
+- [x] Seed **settings** with clearly marked placeholder values + the 5 points rules from the spec; copy learning-plan PDF to `public/files/plan/learning-plan.pdf`
+- [x] Seed all **10 sprints** from the curriculum (titles, phase, duration, goal, topics, missions, build, ready checks); Sprint 0 `in-progress`, others `upcoming`
+- [x] Seed **examples** (marked `EXAMPLE — delete me`): 2 sessions (one done with a small sample PDF, one planned), 1 project, 3 points entries, 1 monthly note
+- [x] `lib/content/` — typed reader wrappers (one module per collection) — the only place that touches the Reader API
+- [x] `scripts/validate-content.ts` + `npm run validate-content`: reads every collection/singleton through the Reader API, checks required fields, relationship targets exist, unique sprint/session numbers, month format, file paths exist on disk, point rule keys match settings; non-zero exit on failure. Added to `verify`.
+- [x] Unit test that runs the validator against the seeded content
 
 **Acceptance gate (Phase 1)**
 - `npm run verify` (now including `validate-content`) passes.

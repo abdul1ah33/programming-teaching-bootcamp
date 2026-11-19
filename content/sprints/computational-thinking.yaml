@@ -1,0 +1,26 @@
+number: 0
+title: Computational Thinking
+status: in-progress
+phase: thinking
+duration: 1 week
+goal: Learn to describe a problem and plan a solution before writing code.
+topics:
+  - What programming is and what a program does
+  - Inputs, processes, and outputs
+  - Pseudocode and basic flowcharts
+  - 'Algorithms: a sequence of unambiguous steps'
+  - Breaking a large problem into smaller tasks
+  - Testing with sample inputs and tracing steps
+missions:
+  - Write step-by-step instructions for making a sandwich or playing a simple game
+  - Create pseudocode for a two-number calculator
+  - Draw a flowchart that decides whether a number is positive, negative, or zero
+build: A clearly explained algorithm and flowchart for a simple everyday problem.
+readyChecks:
+  - text: Explain what an algorithm is
+    done: false
+  - text: Identify the inputs and outputs of a problem
+    done: false
+  - text: Trace a short sequence of instructions
+    done: false
+files: []

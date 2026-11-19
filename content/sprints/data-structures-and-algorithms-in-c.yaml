@@ -1,0 +1,30 @@
+number: 8
+title: Data Structures and Algorithms in C
+status: upcoming
+phase: c
+duration: 4–5 weeks
+goal: Implement foundational data structures and understand the trade-offs between them.
+topics:
+  - Structures (struct)
+  - Linear search and binary search
+  - 'Linked lists: nodes, traversal, insertion, and deletion'
+  - Choosing a data structure for a task
+  - 'Big-O intuition: constant, linear, and quadratic growth'
+  - Bubble, selection, and insertion sort
+  - Stacks and queues
+  - Testing edge cases and tracing operations
+missions:
+  - Implement linear search and binary search
+  - Sort a list of numbers using two different algorithms
+  - Build a singly linked list
+  - Implement a stack using an array
+  - Implement a queue using an array
+build: A console-based data-structure toolkit with a menu to demonstrate operations on at least two structures.
+readyChecks:
+  - text: Explain the purpose of arrays, linked lists, stacks, and queues
+    done: false
+  - text: Implement their basic operations
+    done: false
+  - text: Compare simple performance trade-offs
+    done: false
+files: []

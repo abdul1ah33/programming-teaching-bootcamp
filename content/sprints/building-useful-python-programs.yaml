@@ -1,0 +1,31 @@
+number: 4
+title: Building Useful Python Programs
+status: upcoming
+phase: python
+duration: 2–3 weeks
+goal: Make programs more reliable, organized, and capable of saving information.
+topics:
+  - Importing modules and using standard-library tools
+  - Basic exception handling with try and except
+  - Introduction to classes and objects
+  - Separating a program into multiple files where appropriate
+  - Reading from and writing to text files
+  - Debugging and reading error messages
+  - Attributes, methods, and __init__
+missions:
+  - Save and load a list of tasks
+  - Handle invalid numeric input
+  - Create a simple Book class
+  - Represent an expense as an object
+  - Improve an earlier project by separating logic into functions
+build: A personal expense tracker or library tracker that saves information and loads it when restarted.
+readyChecks:
+  - text: Read from and write to a file
+    done: false
+  - text: Handle common invalid input
+    done: false
+  - text: Explain a simple class and object
+    done: false
+  - text: Organize a small application
+    done: false
+files: []

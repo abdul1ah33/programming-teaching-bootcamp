@@ -1,0 +1,30 @@
+number: 5
+title: C Fundamentals
+status: upcoming
+phase: c
+duration: 2–3 weeks
+goal: Learn C syntax and compare familiar programming concepts with Python.
+topics:
+  - What a compiler does; source code, compilation, and execution
+  - Variables and C data types
+  - Operators and type conversion
+  - Functions, parameters, and return values
+  - main(), header files, and printf()/scanf()
+  - Format specifiers
+  - Conditions and loops
+  - Basic compiler errors and warnings
+missions:
+  - Rebuild the Python calculator in C
+  - Convert temperatures
+  - Create a number guessing game
+  - Write functions for simple calculations
+  - Compare how Python and C represent and process values
+build: A small menu-driven C application containing multiple functions.
+readyChecks:
+  - text: Compile and run a C program
+    done: false
+  - text: Use basic types and control flow
+    done: false
+  - text: Explain at least a few differences between Python and C
+    done: false
+files: []

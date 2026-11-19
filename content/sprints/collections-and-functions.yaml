@@ -1,0 +1,30 @@
+number: 3
+title: Collections and Functions
+status: upcoming
+phase: python
+duration: 2–3 weeks
+goal: Store groups of information and divide programs into reusable pieces.
+topics:
+  - 'Lists: indexing, slicing, adding, removing, and updating'
+  - Dictionaries and key-value pairs
+  - Defining and calling functions
+  - Local variables and basic scope
+  - Tuples and sets at an introductory level
+  - Looping through collections
+  - Parameters, arguments, and return values
+  - Decomposing a problem into functions
+missions:
+  - Find the largest and smallest value in a list
+  - Calculate the average of a list of grades
+  - Count occurrences of a word
+  - Store game scores in a dictionary
+  - Write and reuse a function that checks whether a number is prime
+build: A student grade manager that can add students, store grades, calculate averages, and display results.
+readyChecks:
+  - text: Select a suitable collection for a task
+    done: false
+  - text: Write functions with parameters and return values
+    done: false
+  - text: Combine them into a small program
+    done: false
+files: []
