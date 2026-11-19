@@ -249,9 +249,9 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Phase 11 — README & handover
 
-- [ ] `README.md` step by step: run locally; edit in local mode; push to private GitHub repo; deploy on Vercel; create Keystatic GitHub App + env vars on Vercel; switch to GitHub mode; mark a session done, add files, award points, add a badge, write the monthly note (incl. from a phone); print a monthly report; enable site password; file-size advice (~15 MB, videos → unlisted YouTube); how to delete the example entries
-- [ ] Final screenshots of every main page in both themes to `docs/screenshots/` (phone + desktop)
-- [ ] "What was built / known limitations" section at the end of this file
+- [x] `README.md` step by step: run locally; edit in local mode; push to private GitHub repo; deploy on Vercel; create Keystatic GitHub App + env vars on Vercel; switch to GitHub mode; mark a session done, add files, award points, add a badge, write the monthly note (incl. from a phone); print a monthly report; enable site password; file-size advice (~15 MB, videos → unlisted YouTube); how to delete the example entries
+- [x] Final screenshots of every main page in both themes to `docs/screenshots/` (phone + desktop)
+- [x] "What was built / known limitations" section at the end of this file
 
 **Acceptance gate (Phase 11)**
 - `npm run verify` passes; `npm run check-snippets` passes.
@@ -262,7 +262,7 @@ All functions pure (inputs → outputs, `today` passed in explicitly), in `lib/d
 
 ## Questions
 
-Each has the default I'll use if you don't answer.
+Each has the default I'll use if you don't answer. **Status: you replied "go", so every default below was applied.**
 
 1. **Curriculum file name.** The spec says `docs/curriculum.pdf`; the file is `docs/Programming Learning Journey - Learning Plan.pdf`.
    *Default:* leave it where it is; copy it to `public/files/plan/learning-plan.pdf` as the downloadable learning plan.
@@ -294,8 +294,54 @@ Each has the default I'll use if you don't answer.
 
 ## Later / out of scope
 
-(empty)
+Ideas noticed during the build. None of these are built.
+
+- Embed YouTube videos (privacy-enhanced `youtube-nocookie.com`) on session pages instead of plain links.
+- Show sprint titles instead of slugs in the admin's relationship pickers (needs a custom Keystatic field).
+- Fill in "Completed on" / "Done on" automatically when a status or check changes (Keystatic can't do this out of the box).
+- Compress uploaded project screenshots automatically.
+- A small "since last time" summary for parents on the plan page.
 
 ## What was built / known limitations
 
-(filled in Phase 11)
+**What was built** (12 phases, one commit each):
+
+- A static Next.js 16 site with 73 pages: home dashboard, road map (code-drawn SVG path), 10 sprint pages,
+  sessions timeline and detail, resources with inline PDF preview, projects, points with chart and
+  badge wall, A–Z glossary (37 terms) with term pages, Python and C cheat sheets (print to 3 A4 pages
+  each), learning plan for parents, monthly reports (print to 1 A4 page), "What's next" (6 fields), 404.
+- Keystatic admin with every collection from the spec; local mode in dev, GitHub mode via env vars.
+  Every editing action from the spec was tested in the admin, touching 1–3 fields each (DECISIONS #57).
+- Seed content: all 10 sprints from the curriculum, settings with placeholders, 5 points rules,
+  10 badges, 37 glossary terms, 2 cheat sheets, 6 fields, and marked examples (2 sessions, 1 project,
+  3 points entries, 1 monthly note).
+- All 84 code examples run: 48 Python run, 36 C compile with `gcc -std=c11 -Wall -Wextra -Werror` and run.
+- Pure derive functions with 102 unit tests; `npm run verify` (lint, types, content check, tests, build)
+  passes with zero errors and zero warnings.
+- Light/dark themes from one set of tokens, no flash on load, WCAG AA for every text pair in both
+  themes, keyboard accessible, reduced motion respected, noindex + robots.txt, optional password.
+
+**Known limitations**
+
+- **Needs your accounts:** the GitHub repo, the Vercel project, the Keystatic GitHub App and the Vercel
+  env vars aren't set up. README sections 3–5 have the exact steps.
+- **Pages update on deploy.** Everything is static, so changes appear about a minute after an admin
+  Save (redeploy). "Next session", "points this month" and "new badge" use the viewer's date, so they're
+  always current. A new month's report page appears with the first deploy in that month.
+- **Dates drive badges and reports.** A sprint marked Done without *Completed on*, a check without
+  *Done on* or a project without *Finished on* still counts as done, but has no date. It then doesn't
+  appear in a month's report, and its badge shows "Unlocked" without a date. `validate-content` warns
+  about the first and last of these.
+- **Points activities live in two places**: Settings (shown on the site) and
+  `lib/model/points-rules.ts` (the admin's choices). The validator fails if they differ.
+- The admin's sprint/session pickers show slugs (`computational-thinking`), not titles.
+- Uploaded files are stored as `…/files/0/file.pdf` (Keystatic's naming). The site names downloads
+  after their label.
+- `npm run check-snippets` needs Python and gcc installed, so it isn't part of `verify` and doesn't run
+  on Vercel. Run it locally after editing code examples. It was checked with MinGW gcc 6.3 and Python 3.12.
+- `docs/screenshots/` is about 52 MB (per-phase review screenshots). Once you've reviewed them, you can
+  delete the `phase-*` folders to keep the repo small.
+- Vercel's free Hobby plan is meant for non-commercial use. If the tutoring is paid, check whether
+  Vercel's terms require the Pro plan.
+- Example copy uses "he/his" where the spec does; the UI talks to the student as "you" and uses the
+  first name from settings elsewhere.
