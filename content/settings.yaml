@@ -1,10 +1,10 @@
 # PLACEHOLDER VALUES — replace them in the admin (Settings) or here.
 siteTitle: The Programming Learning Journey
-studentFirstName: Sam
+studentFirstName: Adam
 teacherName: Your Name
 contactEmail: teacher@example.com
 contactWhatsApp: ''
-startDate: 2026-11-02
+startDate: 2026-11-20
 scheduleText: Tuesdays and Saturdays, 60–90 minutes each, plus short practice at home.
 learningPlanPdf: /files/plan/learning-plan.pdf
 pointsRules:

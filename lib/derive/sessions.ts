@@ -30,3 +30,15 @@ export function timeline(sessions: readonly Session[]): Session[] {
 export function sessionsForSprint(sessions: readonly Session[], sprintSlug: string): Session[] {
   return sessions.filter((s) => s.sprint === sprintSlug).sort(byDateThenNumber);
 }
+
+/**
+ * The lesson to show as "current": one happening today (unless cancelled), otherwise the most recent
+ * lesson that's been marked Done on or before today. Call it on the client with the viewer's date.
+ */
+export function currentSession(sessions: readonly Session[], today: IsoDate): Session | undefined {
+  const todays = sessions.filter((s) => s.date === today && s.status !== 'cancelled').sort(byDateThenNumber)[0];
+  if (todays) return todays;
+  return sessions
+    .filter((s) => s.status === 'done' && s.date <= today)
+    .sort((a, b) => byDateThenNumber(b, a))[0];
+}

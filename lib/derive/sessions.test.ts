@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { session } from '@/tests/fixtures';
-import { nextSession, recentSessions, sessionsDone, sessionsForSprint, timeline } from './sessions';
+import { currentSession, nextSession, recentSessions, sessionsDone, sessionsForSprint, timeline } from './sessions';
 
 const sessions = [
   session(1, { date: '2026-11-03', status: 'done' }),
@@ -45,5 +45,23 @@ describe('session lists', () => {
   });
   it('sessionsForSprint filters and sorts by date', () => {
     expect(sessionsForSprint(sessions, 'sprint-1').map((s) => s.number)).toEqual([6, 5]);
+  });
+});
+
+describe('currentSession', () => {
+  it('is a lesson happening today, even if not yet marked done', () => {
+    expect(currentSession(sessions, '2026-11-21')?.number).toBe(6);
+  });
+  it('otherwise is the most recent done lesson on or before today', () => {
+    expect(currentSession(sessions, '2026-11-19')?.number).toBe(2);
+    expect(currentSession(sessions, '2026-11-05')?.number).toBe(1);
+  });
+  it('ignores cancelled lessons today and done lessons dated in the future', () => {
+    expect(currentSession(sessions, '2026-11-10')?.number).toBe(2);
+    expect(currentSession([session(1, { date: '2026-12-01', status: 'done' })], '2026-11-20')).toBeUndefined();
+  });
+  it('is undefined before any lesson has happened', () => {
+    expect(currentSession(sessions, '2026-11-01')).toBeUndefined();
+    expect(currentSession([], '2026-11-20')).toBeUndefined();
   });
 });
